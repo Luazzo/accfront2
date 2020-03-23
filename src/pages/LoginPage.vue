@@ -43,7 +43,7 @@
     </div>
 </template>
 <script>
-    import {mapState, mapActions, mapGetters, mapMutations} from "vuex"
+    import {mapState, mapActions} from "vuex"
     import { Card, Button, FormGroupInput } from '@/components';
     import MainFooter from '@/layout/MainFooter';
     import {eventBus} from "../eventBus.js"
@@ -74,9 +74,6 @@
         methods: {
             ...mapActions(['loginUser']),
 
-            /*setLoggedIn(newValue){
-                eventBus.$emit("changeLoggedIn",newValue)
-            },*/
 
             login(){
                 if (this.email.length > 0 && this.password.length > 0) {

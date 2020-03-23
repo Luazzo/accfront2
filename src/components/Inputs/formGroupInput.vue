@@ -5,6 +5,7 @@
        {'has-danger': error},
        {'input-group-focus': focused},
        {'has-label': label || $slots.label}]">
+
     <slot name="label">
       <label v-if="label" :class="labelClasses">
         {{label}}
@@ -17,6 +18,8 @@
         <i class="input-group-text" :class="addonLeftIcon"></i>
       </div>
     </slot>
+
+
     <slot>
       <input
         :value="value"
@@ -26,6 +29,8 @@
         :class="[{valid: value && !error}, inputClasses]"
         aria-describedby="addon-right addon-left">
     </slot>
+
+
     <slot name="addonRight">
         <span v-if="addonRightIcon" class="input-group-addon input-group-append">
           <i class="input-group-text" :class="addonRightIcon"></i>
@@ -33,6 +38,7 @@
     </slot>
 
     <slot name="infoBlock"></slot>
+
     <slot name="helpBlock">
       <div class="text-danger invalid-feedback" style="display: block;" :class="{'mt-2': hasIcon}" v-if="error">
         {{ error }}

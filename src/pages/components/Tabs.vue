@@ -26,7 +26,7 @@
                             </tab-pane>
                             <tab-pane>
                                 <template slot="label">
-                                    <i class="now-ui-icons shopping_cart-simple"></i> Voiture
+                                    <i class="now-ui-icons shopping_cart-simple"></i> HabitationVoiture
                                 </template>
                                 <p> I will be the leader of a company that ends up being worth billions of dollars,
                                     because I got the answers. I understand culture. I am the nucleus. I think
@@ -37,7 +37,7 @@
                             </tab-pane>
                             <tab-pane>
                                 <template slot="label">
-                                    <i class="now-ui-icons shopping_shop"></i> Famille
+                                    <i class="now-ui-icons shopping_shop"></i> HabitationVoitureFamille
                                 </template>
                                 <p>I think that’s a responsibility that I have, to push possibilities, to show
                                     people, this is the level that things could be at. So when you get something
@@ -49,7 +49,7 @@
                             </tab-pane>
                             <tab-pane>
                                 <template slot="label">
-                                    <i class="now-ui-icons ui-2_settings-90"></i> Vie
+                                    <i class="now-ui-icons ui-2_settings-90"></i> HabitationVoitureFamilleVie
                                 </template>
                                 <p>
                                     "I will be the leader of a company that ends up being worth billions of dollars,
@@ -61,7 +61,7 @@
                             </tab-pane>
                             <tab-pane>
                                 <template slot="label">
-                                    <i class="now-ui-icons ui-2_settings-90"></i> Hospitalisation
+                                    <i class="now-ui-icons ui-2_settings-90"></i> HabitationVoitureFamilleVieHospitalisation
                                 </template>
                                 <p>
                                     "I will be the leader of a company that ends up being worth billions of dollars,
@@ -73,7 +73,7 @@
                             </tab-pane>
                             <tab-pane>
                                 <template slot="label">
-                                    <i class="now-ui-icons ui-2_settings-90"></i> Protection juridique
+                                    <i class="now-ui-icons ui-2_settings-90"></i> HabitationVoitureFamilleVieHospitalisationProtection juridique
                                 </template>
                                 <p>
                                     "I will be the leader of a company that ends up being worth billions of dollars,
@@ -85,7 +85,7 @@
                             </tab-pane>
                             <tab-pane>
                                 <template slot="label">
-                                    <i class="now-ui-icons ui-2_settings-90"></i> Voyage
+                                    <i class="now-ui-icons ui-2_settings-90"></i> HabitationVoitureFamilleVieHospitalisationProtectionVoyage
                                 </template>
                                 <p>
                                     "I will be the leader of a company that ends up being worth billions of dollars,
