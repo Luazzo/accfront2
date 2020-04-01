@@ -9,14 +9,32 @@
 </template>
 
 <script>
-
+  import {mapActions, mapState} from "vuex"
   import StarterNavbar from './layout/StarterNavbar';
   import MainFooter from './layout/MainFooter';
+
   export default {
     components: {
       StarterNavbar,
       MainFooter
     },
+    computed:{
+      ...mapState(["token"]),
+
+    },
+    methods:{
+      ...mapActions(["getUser"]),
+
+    },
+    mounted(){
+      //console.log("app " + this.token)
+      this.getUser({
+            headers: {
+                'Accept' : 'application/json',
+                'Authorization': 'Bearer '+ JSON.parse(this.token),
+            }
+        })
+    }
   }
 </script>
 

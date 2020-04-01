@@ -10,7 +10,7 @@
                         <div class="col-md-8 mr-auto ml-auto">
                             <h2 class="title">Écoute et Efficacité</h2>
                             <h4 class="description">Nous vous écoutons. Nous analisons vos besoins. Nous faisons les études comparatives
-                            et en suite nous agissons avec éfficacité pour y repondre.</h4>
+                                et en suite nous agissons avec éfficacité pour y repondre.</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -117,7 +117,6 @@
         bodyClass: 'contact-page',
         components: {
             HeadImage,
-            InfoSection,
             [Button.name]: Button,
             [FormGroupInput.name]: FormGroupInput,
         },

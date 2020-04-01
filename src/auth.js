@@ -9,7 +9,7 @@ const config = {
   auth: bearer,
   http: axios,
   router: router,
-  tokenDefaultName: 'laravel-jwt-auth',
+  tokenDefaultName: 'accessToken',
   tokenStore: ['localStorage'],
 
   // API endpoints used in Vue Auth.

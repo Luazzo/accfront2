@@ -27,4 +27,19 @@
 <div id="app"></div>
 <!-- built files will be auto injected -->
 </body>
+
+<script>
+  /*NOTE: It is important to note that if you already have a live app, then this won’t work unless
+  the user does a full refresh which 99% is not going to happen. So your best option would be
+  to add a small script to your index.html that uninstalls all service-workers for a week/month.
+  https://medium.com/js-dojo/vuejs-pwa-cache-busting-8d09edd22a31*/
+  if(window.navigator && navigator.serviceWorker) {
+    navigator.serviceWorker.getRegistrations()
+    .then(function(registrations) {
+      for(let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
 </html>

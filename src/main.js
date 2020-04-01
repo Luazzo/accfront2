@@ -1,10 +1,12 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import jQuery from "./jquery.min";
 import {store} from "./store/store"
 import "./registerServiceWorker";
 //plugins
 import NowUIKit from './plugins/now-ui-kit';
+import Validate from './plugins/jquery.validate.min';
 import 'es6-promise/auto'
 import axios from 'axios'
 import VueAuth from '@websanova/vue-auth'
@@ -25,13 +27,14 @@ axios.defaults.baseURL = `http://127.0.0.1:8000/api/`
 Vue.use(VueAuth, auth)
 Vue.config.productionTip = false;
 Vue.use(NowUIKit);
+Vue.use(Validate);
 
 // Set Vue localStorage : make it reactive
 
 
 
 new Vue({
-  router,
+  router, jQuery,
   store,
   render: h => h(App)
 }).$mount("#app");

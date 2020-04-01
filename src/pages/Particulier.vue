@@ -38,7 +38,7 @@
             <div class="container">
                 <h2 class="title">Contactez nous pour un offre</h2>
                 <p class="description">Nous vous répondons dans les 24H</p>
-                <div class="row">
+                <div class="row" id="FormValidation">
                     <div class="col-lg-6 text-center ml-auto mr-auto col-md-8">
                         <label v-if="errors.nom" class="labelError">Nom est obligatoire.</label>
                         <fg-input
@@ -53,9 +53,11 @@
                                 placeholder="Email "
                                 v-model="form.email"
                                 addon-left-icon="now-ui-icons ui-1_email-85"
-                                error = "oups!"
-                                :class="[{valid: value && !error}, inputClasses]"
+                                :class="{'is-invalid' : !validEmail(form.email) && emailBlured}"
                                 v-on:blur="emailBlured = true">
+                            <template v-slot:error>
+                                oups!
+                            </template>
                         </fg-input>
                         <label v-if="errors.gsm" class="labelError">GSM est obligatoire.</label>
                         <fg-input
@@ -92,31 +94,6 @@
                             <n-button type="primary" round block size="lg" v-on:click="sendForm" >Envoyer</n-button>
                             -->
                         </div>
-
-
-                        <div class="form-wrap container">
-                            <div v-if="!submitted">
-                                <div class="form-group">
-                                    <label for="email">Email address</label>
-                                    <input
-                                        v-model="email"
-                                        v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}"
-                                        v-on:blur="emailBlured = true">
-                                    <div class="invalid-feedback">A valid email is required</div>
-                                </div>
-                                <div class="form-group">
-                                    <a type="submit" href="#" v-on:click.stop.prevent="submit" class="btn btn-lg btn-success">Submit</a>
-                                </div>
-                            </div>
-                            <div v-else class="alert alert-success" role="alert">
-                                <h5>Thank you</h5>
-                                <p>Your validation was a success!</p>
-                            </div>
-                        </div><!--end form-wrapper-->
-
-
-
-
 
                     </div>
                 </div>
@@ -192,26 +169,24 @@
             },
 
             sendForm(){
-                console.log(this.VALID_EMAIL(this.form.email))
                 this.errors = [];
 
                 if (!this.form.nom) {
-                    this.errors.nom = "Nom est obligatoire."
+                    this.errors.nom = "Nom est obligatoire"
                 }
                 if (!this.form.message) {
-                    this.errors.message = "Message est vide."
+                    this.errors.message = "Message est vide"
                 }
                 if (!this.form.ddn) {
-                    this.errors.ddn = "Date de nassance est vide."
+                    this.errors.ddn = "Date de nassance est vide"
                 }
                 if (!this.form.gsm) {
-                    this.errors.gsm = 'GSM est obligatoire.'
+                    this.errors.gsm = 'GSM est obligatoire'
                 }
                 if (!this.VALID_EMAIL(this.form.email)) {
-                    this.errors.email = 'Email est invalide.'
+                    this.errors.email = 'Email est invalide'
                 }
 
-                console.log(this.errors)
 
                 if (!this.errors.length) {
 
@@ -220,10 +195,14 @@
                 }
 
             },
+
         },
 
 
     }
+
+
+
 </script>
 
 <style scoped>
