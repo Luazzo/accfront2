@@ -52,12 +52,7 @@
                                 class="input-lg"
                                 placeholder="Email "
                                 v-model="form.email"
-                                addon-left-icon="now-ui-icons ui-1_email-85"
-                                :class="{'is-invalid' : !validEmail(form.email) && emailBlured}"
-                                v-on:blur="emailBlured = true">
-                            <template v-slot:error>
-                                oups!
-                            </template>
+                                addon-left-icon="now-ui-icons ui-1_email-85">
                         </fg-input>
                         <label v-if="errors.gsm" class="labelError">GSM est obligatoire.</label>
                         <fg-input
@@ -107,6 +102,7 @@
     import Pills from './components/Pills'
     import { Button, FormGroupInput } from '@/components';
     import {mapActions, mapMutations} from "vuex"
+    //import { store } from './store'
     export default {
         name: "Particulier",
         components:{
@@ -132,34 +128,24 @@
                     permis: ""
                 },
 
-                email : "",
-                emailBlured : false,
-                valid : false,
-                submitted : false
             }
         },
         methods:{
-            ...mapMutations(["VALID_EMAIL", "CHECK_VALUE"]),
+            ...mapMutations(["valid_email", "CHECK_VALUE"]),
 
-            ...mapActions(['sendEmail']),
+            ...mapActions([ 'sendEmail']),
 
-            validate : function(){
-                this.emailBlured = true;
-                if( this.validEmail(this.email)){
-                    this.valid = true;
-                }
-            },
-            validEmail : function(email) {
-                var re = /(.+)@(.+){2,}\.(.+){2,}/;
+            validEmail(email) {
+                let re = /(.+)@(.+){2,}\.(.+){2,}/;
                 return re.test(email);
             },
             submit : function(){
                 this.validate();
                 if(this.valid){
-                    //THIS IS WHERE YOU SUBMIT DATA TO SERVER
+                    //IF VALID SUBMIT DATA TO SERVER
                     this.submitted = true;
                 }
-            }, //end submit
+            },
 
             /**
              * @return {boolean}
@@ -169,7 +155,7 @@
             },
 
             sendForm(){
-                this.errors = [];
+                this.errors = {};
 
                 if (!this.form.nom) {
                     this.errors.nom = "Nom est obligatoire"
@@ -183,15 +169,15 @@
                 if (!this.form.gsm) {
                     this.errors.gsm = 'GSM est obligatoire'
                 }
-                if (!this.VALID_EMAIL(this.form.email)) {
+                if (this.validEmail(this.form.email) === false) {
                     this.errors.email = 'Email est invalide'
                 }
 
+                if(JSON.stringify(this.errors) === '{}'){ //Puisque nous ne disposons plus de l'attribut length de l'objet Array, This will check if the object is empty
 
-                if (!this.errors.length) {
+                    this.sendEmail(this.form)
 
-
-                    return true;
+                    //console.log(this.form)
                 }
 
             },
@@ -206,5 +192,6 @@
 </script>
 
 <style scoped>
-    .labelError{ color: #fa7a50; float: left }
+    .labelError{ color: #fa7a50; float: left; margin-bottom: 0px;
+    }
 </style>

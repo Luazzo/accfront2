@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Accueil from "./pages/Accueil.vue";
 import Contact from "./pages/ContactUs.vue";
 import Particulier from "./pages/Particulier.vue";
+import Entreprise from "./pages/Entreprise.vue";
 import MainNavbar from "./layout/MainNavbar.vue"
 import MainFooter from "./layout/MainFooter.vue"
 import Register from './pages/SignUpPage'
@@ -30,6 +31,12 @@ const router = new Router({
       path: "/particulier",
       name: "particulier",
       components: {default: Particulier},
+      props: {header: {colorOnScroll: 450}}
+    },
+    {
+      path: "/entreprise",
+      name: "entreprise",
+      components: {default: Entreprise},
       props: {header: {colorOnScroll: 450}}
     },
     {

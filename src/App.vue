@@ -27,13 +27,14 @@
 
     },
     mounted(){
-      //console.log("app " + this.token)
-      this.getUser({
-            headers: {
-                'Accept' : 'application/json',
-                'Authorization': 'Bearer '+ JSON.parse(this.token),
-            }
+      if(this.token){
+        this.getUser({
+          headers: {
+            'Accept' : 'application/json',
+            'Authorization': 'Bearer '+ JSON.parse(this.token),
+          }
         })
+      }
     }
   }
 </script>
