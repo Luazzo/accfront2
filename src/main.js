@@ -12,6 +12,11 @@ import axios from 'axios'
 import VueAuth from '@websanova/vue-auth'
 import VueAxios from 'vue-axios'
 import auth from './auth'
+import FlashMessage from 'vue-flash-message';
+
+//Message de confirmation post-emailing
+Vue.use(FlashMessage);
+require('vue-flash-message/dist/vue-flash-message.min.css');
 
 // Set Vue globally
 window.Vue = Vue
@@ -25,12 +30,16 @@ axios.defaults.baseURL = `http://127.0.0.1:8000/api/`
 
 // Set Vue authentication
 Vue.use(VueAuth, auth)
-Vue.config.productionTip = false;
+
+//Template HTML
 Vue.use(NowUIKit);
+
+//Validation de form
 Vue.use(Validate);
 
 // Set Vue localStorage : make it reactive
 
+Vue.config.productionTip = false;
 
 
 new Vue({

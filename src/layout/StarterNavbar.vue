@@ -19,7 +19,7 @@
                 Particulier
             </router-link>
 
-            <router-link class="nav-item nav-link" to="/presentation">
+            <router-link class="nav-item nav-link" to="/entreprise">
                 Entreprise
             </router-link>
 

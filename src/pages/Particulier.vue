@@ -33,11 +33,13 @@
         <!--Nos assurances-->
         <Pills></Pills>
 
+        <div class="separator-line separator-primary"></div>
 
         <div id="mess" class="section section-contact-us text-center">
             <div class="container">
-                <h2 class="title">Contactez nous pour un offre</h2>
+                <h2 id="titleMess" class="title">Contactez nous pour un offre</h2>
                 <p class="description">Nous vous répondons dans les 24H</p>
+                <flash-message></flash-message>
                 <div class="row" id="FormValidation">
                     <div class="col-lg-6 text-center ml-auto mr-auto col-md-8">
                         <label v-if="errors.nom" class="labelError">Nom est obligatoire.</label>
@@ -90,6 +92,7 @@
                             -->
                         </div>
 
+
                     </div>
                 </div>
             </div>
@@ -101,11 +104,11 @@
 
     import Pills from './components/Pills'
     import { Button, FormGroupInput } from '@/components';
-    import {mapActions, mapMutations} from "vuex"
-    //import { store } from './store'
+    import {mapActions} from "vuex"
     export default {
         name: "Particulier",
         components:{
+
             Pills,
             [Button.name]: Button,
             [FormGroupInput.name]: FormGroupInput
@@ -127,64 +130,47 @@
                     ddn: "",
                     permis: ""
                 },
-
             }
         },
         methods:{
-            ...mapMutations(["valid_email", "CHECK_VALUE"]),
-
             ...mapActions([ 'sendEmail']),
 
             validEmail(email) {
                 let re = /(.+)@(.+){2,}\.(.+){2,}/;
                 return re.test(email);
             },
-            submit : function(){
-                this.validate();
-                if(this.valid){
-                    //IF VALID SUBMIT DATA TO SERVER
-                    this.submitted = true;
-                }
-            },
 
-            /**
-             * @return {boolean}
-             */
-            CHECK(value, error){
-                return error = (value === '')
+            videChamps(form){
+                for (const prop in form) {
+                    this.form[prop]  = ''
+                }
             },
 
             sendForm(){
                 this.errors = {};
-
-                if (!this.form.nom) {
-                    this.errors.nom = "Nom est obligatoire"
+                //validation des champs
+                for (const prop in this.form) {
+                    console.log(prop)
+                    if(prop === "email") {
+                        if (this.validEmail(this.form.email) === false) {
+                            this.errors.email = true
+                        }
+                    }else if( prop === "permis" ) {
+                        continue
+                    }else if( !this.form[prop] ) {
+                        this.errors[prop] = true
+                    }
                 }
-                if (!this.form.message) {
-                    this.errors.message = "Message est vide"
-                }
-                if (!this.form.ddn) {
-                    this.errors.ddn = "Date de nassance est vide"
-                }
-                if (!this.form.gsm) {
-                    this.errors.gsm = 'GSM est obligatoire'
-                }
-                if (this.validEmail(this.form.email) === false) {
-                    this.errors.email = 'Email est invalide'
-                }
-
-                if(JSON.stringify(this.errors) === '{}'){ //Puisque nous ne disposons plus de l'attribut length de l'objet Array, This will check if the object is empty
-
+                //Je verifie est-e qu'il y a au moins un TRUE d'error et si non j'appelle une fonction envoyer un email.
+                if(!Object.values(this.errors).some(value => true)) {
                     this.sendEmail(this.form)
-
-                    //console.log(this.form)
+                    this.videChamps(this.form)
+                    this.flash('Merci! Votre message est bien envoyé.', 'success', {
+                      timeout: 3000,
+                    });
                 }
-
             },
-
         },
-
-
     }
 
 
@@ -192,6 +178,5 @@
 </script>
 
 <style scoped>
-    .labelError{ color: #fa7a50; float: left; margin-bottom: 0px;
-    }
+    .labelError{ color: #fa7a50; float: left; margin-bottom: 0px;}
 </style>

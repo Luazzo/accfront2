@@ -64,11 +64,10 @@
     </div>
 </template>
 <script>
-    import {Card, Tabs, TabPane} from '@/components';
+    import {Tabs, TabPane} from '@/components';
 
     export default {
         components: {
-            Card,
             Tabs,
             TabPane
         }

@@ -20,6 +20,7 @@
     "register-service-worker": "^1.0.0",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
+    "vue-flash-message": "^0.7.2",
     "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.2",
     "vue2-google-maps": "^0.9.6",
