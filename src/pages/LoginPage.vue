@@ -82,27 +82,6 @@
                         email: this.email,
                         password: this.password,
                     })
-
-                    /*axios.post("http://127.0.0.1:8000/api/auth/login", {
-                        email: this.email,
-                        password: this.password,
-                    })
-                        .then(response => {
-
-                            localStorage.setItem('token', JSON.stringify(response.data.accessToken))
-
-
-                            eventBus.$emit("changeLoggedIn",true)
-
-
-                            router.push({name:'accueil'})
-
-                        })
-                        .catch(error => {
-                            console.log(error);
-                        });*/
-
-
                 } else {
                     this.password = ""
 

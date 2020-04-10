@@ -104,7 +104,7 @@
 
     import Pills from './components/Pills'
     import { Button, FormGroupInput } from '@/components';
-    import {mapActions} from "vuex"
+    import axios from "axios";
     export default {
         name: "Particulier",
         components:{
@@ -133,7 +133,6 @@
             }
         },
         methods:{
-            ...mapActions([ 'sendEmail']),
 
             validEmail(email) {
                 let re = /(.+)@(.+){2,}\.(.+){2,}/;
@@ -150,7 +149,6 @@
                 this.errors = {};
                 //validation des champs
                 for (const prop in this.form) {
-                    console.log(prop)
                     if(prop === "email") {
                         if (this.validEmail(this.form.email) === false) {
                             this.errors.email = true
@@ -163,11 +161,18 @@
                 }
                 //Je verifie est-e qu'il y a au moins un TRUE d'error et si non j'appelle une fonction envoyer un email.
                 if(!Object.values(this.errors).some(value => true)) {
-                    this.sendEmail(this.form)
-                    this.videChamps(this.form)
-                    this.flash('Merci! Votre message est bien envoyé.', 'success', {
-                      timeout: 3000,
-                    });
+                    axios.post('contact-particulier', this.form )
+                        .then(response => {
+                            if(response.status === 200){
+                                this.videChamps(this.form)
+                                this.flash('Merci! Votre message est bien envoyé.', 'success', {
+                                    timeout: 4000,
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
                 }
             },
         },

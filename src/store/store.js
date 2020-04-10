@@ -58,19 +58,6 @@ export const store = new VueX.Store({
                 });
 
         },
-        entrepriseEmail({state}, payload){
-
-            axios.post('contact-entreprise', payload )
-                .then(response => {
-
-                    console.log("email", response.data)
-
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-
-        },
 
         getUser({state}){ //sans {} crée un error 400 : token undefined
 

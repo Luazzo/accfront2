@@ -15,34 +15,43 @@
                                 <br>
                                 <br>
                             </p>
+                            <flash-message></flash-message>
                             <form role="form" id="contact-form" method="post">
-                                <label>Votre Nom</label>
+
+                                <label v-if="errors.nom" class="labelError">Nom est obligatoire.</label>
                                 <fg-input
                                     placeholder="Nom..."
-                                    v-model="form.firstName"
+                                    v-model="form.nom"
                                     addon-left-icon="now-ui-icons users_circle-08">
                                 </fg-input>
 
-                                <label>Email addresse</label>
+                                <label v-if="errors.email" class="labelError">Email est invalide.</label>
                                 <fg-input
                                     placeholder="Email..."
                                     v-model="form.email"
                                     addon-left-icon="now-ui-icons users_circle-08">
                                 </fg-input>
-                                <label>Téléphone</label>
 
+                                <label v-if="errors.gsm" class="labelError">GSM est obligatoire.</label>
                                 <fg-input
                                     placeholder="Téléphone..."
-                                    v-model="form.phone"
+                                    v-model="form.gsm"
                                     addon-left-icon="now-ui-icons tech_mobile">
                                 </fg-input>
 
                                 <div class="form-group">
-                                    <label>Votre message</label>
-                                    <textarea name="message" class="form-control" id="message" rows="6"></textarea>
+                                    <label v-if="errors.message" class="labelError">Message est vide.</label>
+                                    <textarea v-model="form.message"
+                                              name="message"
+                                              class="form-control"
+                                              id="message"
+                                              rows="6"
+                                              placeholder="Veuillez formuler votre demande en quelques mots simple, s'il vous plait">
+                                    </textarea>
                                 </div>
-                                <div class="submit text-center">
-                                    <n-button type="primary" round>Envoyez</n-button>
+                                <div class="send-button">
+                                    <a href="#" class="btn btn-primary btn-round btn-lg btn-block"
+                                       @click.prevent="sendForm">Envoyer</a>
                                 </div>
                             </form>
                         </div>
@@ -88,6 +97,7 @@
 </template>
 <script>
     import { Button, HeadImage, InfoSection, FormGroupInput } from '../components';
+    import axios from "axios";
 
     export default {
         name: 'contact-us',
@@ -101,12 +111,60 @@
         data() {
             return {
                 form: {
-                    firstName: '',
+                    nom: '',
                     email: '',
-                    phone: ''
+                    gsm: '',
+                    message: ''
+                },
+                errors: {
+                    nom: '',
+                    email: '',
+                    gsm: '',
+                    message: ''
                 },
             }
-        }
+        },
+        methods:{
+
+            validEmail(email) {
+                let re = /(.+)@(.+){2,}\.(.+){2,}/;
+                return re.test(email);
+            },
+
+            videChamps(form){
+                for (const prop in form) {
+                    this.form[prop]  = ''
+                }
+            },
+            sendForm(){
+                this.errors = {};
+                //validation des champs
+                for (const prop in this.form) {
+                    if(prop === "email") {
+                        if (this.validEmail(this.form.email) === false) {
+                            this.errors.email = true
+                        }
+                    }else if( !this.form[prop] ) {
+                        this.errors[prop] = true
+                    }
+                }
+                //Je verifie est-e qu'il y a au moins un TRUE d'error et si non j'appelle une fonction envoyer un email.
+                if(!Object.values(this.errors).some(value => true)) {
+                    axios.post('contact', this.form )
+                        .then(response => {
+                            if(response.status === 200){
+                                this.videChamps(this.form)
+                                this.flash('Merci! Votre message est bien envoyé.', 'success', {
+                                    timeout: 4000,
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
+                }
+            },
+        },
     }
 </script>
 <style>
