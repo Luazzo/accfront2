@@ -73,7 +73,7 @@
                                       description="Tarifs avantageux."
                         />
                         <info-section type="danger"
-                                      icon="now-ui-icons design-2_ruler-pencil"
+                                      icon="now-ui-icons shopping_delivery-fast"
                                       title="Très Avantageux"
                                       description="Tarif spécial pour les flottes et véhicules."
                         />

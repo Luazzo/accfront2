@@ -37,8 +37,6 @@ Vue.use(NowUIKit);
 //Validation de form
 Vue.use(Validate);
 
-// Set Vue localStorage : make it reactive
-
 Vue.config.productionTip = false;
 
 

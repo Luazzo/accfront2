@@ -39,7 +39,7 @@
         @include linear-gradient(rgba($black-color,.20), rgba(224, 23, 3, 0.6));
     }
     &[filter-color="black"]{
-        @include linear-gradient(rgba($black-color,.20), rgba(0, 0, 0, 0.7));
+        @include linear-gradient(rgba($black-color,.20), rgba(0, 0, 0, 0.5));
     }
 }
 .clear-filter{

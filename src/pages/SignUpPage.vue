@@ -1,7 +1,7 @@
 <template>
     <div class="page-header signup-page section-image">
         <div class="page-header-image"
-             style="background-image: url('img/bg18.jpg')">
+             style="background-image: url('img/bg9.jpg')">
         </div>
         <div class="content">
             <!---->
@@ -11,14 +11,60 @@
                     <div class="col-6">
                         <div class="card card-signup">
                             <div class="card-body">
-                                <h4 class="card-title text-center">Register</h4>
+                                <h3 class="card-title text-center">Connexion</h3>
                                 <div class="card-body">
                                     <div class="alert alert-danger" v-if="has_error && !success">
                                         <p v-if="error == 'registration_validation_error'">Validation Errors.</p>
                                         <p v-else>Error, can not register at the moment. If the problem persists, please contact an administrator.</p>
                                     </div>
 
+                                    <flash-message></flash-message>
+                                    <div class="row" id="FormValidation">
+                                        <div class="col-lg-10 text-center ml-auto mr-auto col-md-8">
+                                            <label v-if="errors.name" class="labelError">Nom est obligatoire.</label>
+                                            <fg-input
+                                                    class="input-lg"
+                                                    placeholder="Nom"
+                                                    v-model="form.name"
+                                                    addon-left-icon="now-ui-icons users_circle-08">
+                                            </fg-input>
+                                            <label v-if="errors.email" class="labelError">Email est invalide.</label>
+                                            <fg-input
+                                                    class="input-lg"
+                                                    placeholder="Email "
+                                                    v-model="form.email"
+                                                    addon-left-icon="now-ui-icons ui-1_email-85">
+                                            </fg-input>
 
+                                            <label v-if="errors.password" class="labelError">Mot de pass est obligatoire.</label>
+                                            <fg-input
+                                                    type="password"
+                                                    class="input-lg"
+                                                    placeholder="Mot de pass"
+                                                    v-model="form.password"
+                                                    addon-left-icon="now-ui-icons objects_key-25">
+                                            </fg-input>
+                                            <label v-if="errors.password_confirmation" class="labelError">Mot de pass n'est pas identique.</label>
+                                            <fg-input
+                                                    type="password"
+                                                    class="input-lg"
+                                                    placeholder="Confirmez mot de pass"
+                                                    v-model="form.password_confirmation"
+                                                    addon-left-icon="now-ui-icons objects_key-25">
+                                            </fg-input>
+                                            <div class="send-button">
+                                                <a href="#" class="btn btn-info btn-round btn-lg btn-block"
+                                                   @click.prevent="register">S'inscrire</a>
+                                                <!-- event click ne marche pas avec n-button
+                                                <n-button type="primary" round block size="lg" v-on:click="sendForm" >Envoyer</n-button>
+                                                -->
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+<!--
                                     <form autocomplete="off" @submit.prevent="register" v-if="!success" method="post">
                                         <div class="form-group" v-bind:class="{ 'has-error': has_error && errors.name }">
                                             <input  addon-left-icon="now-ui-icons users_circle-08"
@@ -39,36 +85,10 @@
                                             <input type="password" id="password_confirmation" class="form-control" v-model="password_confirmation">
                                         </div>
                                         <div class="card-footer text-center">
-                                             <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
-                                    </form>
+                                    </form>-->
                                 </div>
-
-                                <!--
-                                <fg-input addon-left-icon="now-ui-icons users_circle-08"
-                                          v-model="form.firstName"
-                                          placeholder="First Name...">
-                                </fg-input>
-
-                                <fg-input addon-left-icon="now-ui-icons text_caps-small"
-                                          v-model="form.lastName"
-                                          placeholder="Last Name...">
-                                </fg-input>
-
-                                <fg-input addon-left-icon="now-ui-icons ui-1_email-85"
-                                          v-model="form.email"
-                                          placeholder="Your Email...">
-                                </fg-input>
-
-                                <n-checkbox v-model="form.agree">
-                                    I agree to the terms and
-                                    <a href="#something">conditions</a>.
-                                </n-checkbox>
-                                <div class="card-footer text-center">
-                                    <n-button type="primary" round size="lg">Get Started</n-button>
-                                </div>
-
-                                -->
                             </div>
                         </div>
                     </div>
@@ -76,100 +96,99 @@
             </div>
 
         </div>
-        <main-footer></main-footer>
     </div>
 </template>
 <script>
-    import { Card, Button, FormGroupInput, Checkbox } from '@/components';
-    import MainFooter from '@/layout/MainFooter';
+    import { Button, FormGroupInput, Checkbox } from '@/components';
+    import axios from "axios";
 
     export default {
         name: 'signup-page',
         bodyClass: 'signup-page',
         components: {
-            Card,
-            MainFooter,
             [Button.name]: Button,
             [Checkbox.name]: Checkbox,
             [FormGroupInput.name]: FormGroupInput
         },
         data() {
             return {
-                name: '',
-                email: '',
-                password: '',
-                password_confirmation: '',
+                form : {
+                    name: '',
+                    email: '',
+                    password: '',
+                    password_confirmation: '',
+                },
+                errors: {},
 
                 agree: false,
 
                 has_error: false,
                 error: '',
-                errors: {},
                 success: false,
 
                 is_admin : null,
             }
         },
         methods: {
+            validEmail(email) {
+                let re = /(.+)@(.+){2,}\.(.+){2,}/;
+                return re.test(email);
+            },
             register(){
-                if (this.password === this.password_confirmation && this.password.length > 0) {
-                    let url = "register"
-                    /*if(this.is_admin != null || this.is_admin == 1) url = "http://localhost:8000/register-admin"*/
-                    this.$http.post(url, {
+                this.errors = {}
+                //validation des champs
+                if(this.form.email) {
+                    if (this.validEmail(this.form.email) === false) {
+                        this.errors.email = true
+                    }
+                }else{
+                    this.errors.email = true
+                }
+
+                if(!this.form.password){
+                    this.errors.password = true
+                }else{
+                    if(this.form.password_confirmation !== this.form.password){
+                        this.errors.password_confirmation = true
+                    }
+                }
+
+                if( !this.form.name) {
+                    this.errors.name = true
+                }
+
+                if (!Object.values(this.errors).some(value => true)) {
+                    axios.post('register', {
+                        name: this.form.name,
+                        email: this.form.email,
+                        password: this.form.password,
+                        password_confirmation: this.form.password_confirmation,
+                        })
+                        .then(response => {
+                            this.$router.push('/login')
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
+                    /*if(this.is_admin != null || this.is_admin == 1) url = "http://localhost:8000/register-admin"
+                    this.$http.post( "register", {
                         name: this.name,
                         email: this.email,
                         password: this.password,
                         password_confirmation: this.password_confirmation,
-                       // is_admin: this.is_admin
                     })
-                    .then(response => {
-                        /*localStorage.setItem('user',JSON.stringify(response.data.user))
-                        localStorage.setItem('jwt',response.data.token)
-
-                        if (localStorage.getItem('jwt') != null){
-                            this.$emit('loggedIn')
-                            if(this.$route.params.nextUrl != null){
-                                this.$router.push(this.$route.params.nextUrl)
-                            }
-                            else{*/
-                                this.$router.push('/login')
-                            /*}
-                        }*/
-                    })
-                    .catch(function (error) {
-                        console.error(error.response);
-                    });
-                } else {
-                    this.password = ""
-                    this.password_confirmation = ""
-
-                    return alert("Passwords do not match")
+                        .then(response => {
+                            this.$router.push('/login')
+                        })
+                        .catch(function (error) {
+                            console.error(error.response);
+                        });*/
                 }
             }
-            /*register() {
-                var app = this
-                this.$auth.register({
-                    data: {
-                        name: app.name,
-                        email: app.email,
-                        password: app.password,
-                        password_confirmation: app.password_confirmation
-                    },
-                    success: function () {
-                        console.log(res.response.data)
-                        app.success = true
-                        this.$router.push({name: 'login', params: {successRegistrationRedirect: true}})
-                    },
-                    error: function (res) {
-                        console.log(res.response.data.errors)
-                        app.has_error = true
-                        app.error = res.response.data.error
-                        app.errors = res.response.data.errors || {}
-                    }
-                })
-            }*/
         }
     }
 </script>
 <style>
+    .labelError { color: #fa7a50; float: left; text-align:left; margin-bottom: 0px;}
+    .signup-page { margin-bottom: 0;}
 </style>

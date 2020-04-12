@@ -39,7 +39,6 @@
                 </div>
             </div>
         </div>
-        <main-footer></main-footer>
     </div>
 </template>
 <script>
@@ -53,7 +52,6 @@
         bodyClass: 'login-page',
         components: {
             Card,
-            MainFooter,
             [Button.name]: Button,
             [FormGroupInput.name]: FormGroupInput
         },

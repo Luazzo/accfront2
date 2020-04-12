@@ -57,7 +57,7 @@
 
 
         <!--QUI SOMME NOUS-->
-        <div class="team-3 section-image" style="background-image: url('img/project16.jpg')">
+        <div class="team-3 section-image" style="background-image: url('img/bg24-fonce.jpg')">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto text-center">
@@ -79,28 +79,93 @@
 
                 <div class="row">
                     <div class="col-md-3 ml-auto">
-                        <img class="img-partenaire" v-lazy="'img/partenaires/arag.png'" alt="arag"/>
+                        <a href="https://www.arag.be/fr/blog/business/des-conditions-generales-pourquoi-est-ce-utile-/"
+                           title="Conditions générales">
+                            <img class="img-partenaire" v-lazy="'img/partenaires/arag.png'" alt="arag"/>
+                        </a>
                     </div>
                     <div class="col-md-3 ml-auto">
-                        <img class="img-partenaire" v-lazy="'img/partenaires/ardennes.png'" alt="ardennes"/>
+                        <a href="http://www.ardenneprevoyante.be/fr/conditions-generales"
+                           title="Conditions générales">
+                            <img class="img-partenaire" v-lazy="'img/partenaires/ardennes.png'" alt="ardennes"/>
+                        </a>
                     </div>
                     <div class="col-md-3 ml-auto">
-                        <img class="img-partenaire" v-lazy="'img/partenaires/cardif.png'" alt="cardif"/>
+                        <a href="https://bnpparibascardif.be/documents/66925/93266/201702_CG_stpp+_FR/05ec10f7-839f-8429-bff6-d05414f27f5f"
+                           title="Conditions générales">
+                            <img class="img-partenaire" v-lazy="'img/partenaires/cardif.png'" alt="cardif"/>
+                        </a>
                     </div>
                     <div class="col-md-3">
-                        <img class="img-partenaire" v-lazy="'img/partenaires/baloise.png'" alt="baloise"/>
+                        <a href="https://www.baloise.be/fr/contact-service/conditions-generales.html"
+                           title="Conditions générales">
+                            <img class="img-partenaire" v-lazy="'img/partenaires/baloise.png'" alt="baloise"/>
+                        </a>
                     </div>
                     <div class="col-md-3">
-                        <img class="img-partenaire" v-lazy="'img/partenaires/das.png'" alt="das"/>
+                        <a href="https://www.das.be/das/ewcm/ewcm.nsf/0/643EDA480ADF733BC1257FBD0037EF9E/$file/F5010%20Conditions%20ge%CC%81ne%CC%81rales.pdf"
+                           title="Conditions générales">
+                            <img class="img-partenaire" v-lazy="'img/partenaires/das.png'" alt="das"/>
+                        </a>
                     </div>
                     <div class="col-md-3">
-                        <img class="img-partenaire" v-lazy="'img/partenaires/dkv.jpg'" alt="dkv"/>
+                        <a href="https://biblio.dkv.be/pdfbib.ashx?lang=fr&id=11901.pdf"
+                           title="Conditions générales">
+                            <img class="img-partenaire" v-lazy="'img/partenaires/dkv.jpg'" alt="dkv"/>
+                        </a>
                     </div>
                     <div class="col-md-3 mr-auto">
-                        <img class="img-partenaire" v-lazy="'img/partenaires/euromex.png'" alt="euromex"/>
+                        <a href="https://www.euromex.be/fr/conditions-de-polices"
+                           title="Conditions générales">
+                            <img class="img-partenaire" v-lazy="'img/partenaires/euromex.png'" alt="euromex"/>
+                        </a>
                     </div>
                     <div class="col-md-3 mr-auto">
-                        <img class="img-partenaire" v-lazy="'img/partenaires/europ.jpg'" alt="europ"/>
+                        <a href="https://www.arag.be/fr/blog/business/des-conditions-generales-pourquoi-est-ce-utile-/"
+                           title="Conditions générales">
+                            <img class="img-partenaire" v-lazy="'img/partenaires/europ.jpg'" alt="europ"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mybroker" class="subscribe-line subscribe-line-image"
+             style="background-image: url('img/project15-blue.jpg');
+                    position: relative; padding: 0; width: 100%; ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 ">
+                        <div class="text-right">
+                            <h4 class="title">
+                                <span style="color: #ffbe55">MyBroker</span>,<br>
+                                votre courtier toujours à portée de main !
+                            </h4>
+                            <p class="description">
+                                Grâce à MyBroker, <br>
+                                consultez vos assurances et communiquez avec votre courtier.
+                            </p>
+                        </div>
+                        <div style="margin-top: 20px; margin-bottom: 30px; float: right;">
+                            <p>
+                                <img src="img/download.svg" alt="download">
+                                <span style="text-transform: uppercase; padding-left: 2%; color: white; font-weight: bold;">Télécharger MyBroker</span>
+                            </p>
+                            <div>
+                                <a href="https://apps.apple.com/be/app/mybroker-en/id517191352?l=fr">
+                                    <img src="img/app-store.svg" alt="app-store" class="downloads">
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=com.portima.mybroker&hl=fr">
+                                    <img src="img/google-play.svg" alt="google-play">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 " style="position: relative; min-height:300px; ">
+                        <div style=" width:100%; height:90%;
+                            position: absolute; bottom: 0;  z-index: 3;
+                            background-image: url('img/mybroker.png'); background-size: contain;
+                            background-repeat: no-repeat; background-position: right 20% bottom 0%;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -140,6 +205,14 @@
     }
 </script>
 <style>
+    .downloads{
+        margin-right: 20px;
+    }
+    .container::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
     .img-partenaire {
         padding: 15px;
         height: 80px;

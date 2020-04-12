@@ -1,7 +1,12 @@
 <template>
     <div class="wrapper contact-page">
-        <!--Image HEAD -->
-        <HeadImage></HeadImage>
+        <div data-v-6cb22cbe="" class="separator-line separator-primary"></div>
+
+        <!--Pour afficher Google Maps j'utilise simple iframe;
+        L'autre moyen de l'afficher - c'est avec API_KEY, mais ça coute 300e -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5061.282464808288!2d5.565214527289389!3d50.633781248531946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0fa034ff756bf%3A0x62c3829e2a0d3f37!2sAvenue%20Rogier%2010%2C%204000%20Li%C3%A8ge!5e0!3m2!1sfr!2sbe!4v1580774371112!5m2!1sfr!2sbe"
+                width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="">
+        </iframe>
 
         <!--CONTACTEZ-NOUS-->
         <div class="main">
@@ -88,10 +93,6 @@
             </div>
         </div>
 
-        <!--Pour afficher Google Maps j'utilise simple iframe;
-        L'autre moyen de l'afficher - c'est avec API_KEY, mais ça coute 300e -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5061.282464808288!2d5.565214527289389!3d50.633781248531946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0fa034ff756bf%3A0x62c3829e2a0d3f37!2sAvenue%20Rogier%2010%2C%204000%20Li%C3%A8ge!5e0!3m2!1sfr!2sbe!4v1580774371112!5m2!1sfr!2sbe"
-                width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
     </div>
 </template>

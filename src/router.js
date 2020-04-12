@@ -8,6 +8,7 @@ import MainNavbar from "./layout/MainNavbar.vue"
 import MainFooter from "./layout/MainFooter.vue"
 import Register from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
+import License from './pages/License'
 import Dashboard from './pages/ProfilePage'
 
 
@@ -58,6 +59,14 @@ const router = new Router({
       path: '/register',
       name: 'register',
       component: Register,
+      meta: {
+        auth: false
+      }
+    },
+    {
+      path: '/license',
+      name: 'license',
+      component: License,
       meta: {
         auth: false
       }

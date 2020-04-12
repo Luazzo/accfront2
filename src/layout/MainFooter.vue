@@ -6,34 +6,25 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="https://www.creative-tim.com">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https:///presentation.creative-tim.com">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
                         <a href="https:///blog.creative-tim.com">
                             Blog
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.creative-tim.com/license">
+
+                        <router-link class="nav-item nav-link" to="/license">
                             License
-                        </a>
+                        </router-link>
+
                     </li>
                 </ul>
             </nav>
             <div class="copyright">
                 &copy; {{year}}, Designed by
                 <a href="https:///www.invisionapp.com" target="_blank">Invision</a>. Coded by
-                <a href="https://github.com/cristijora" target="_blank">Cristi Jora</a> and
+                <a href="https://github.com/Luazzo" target="_blank">Luazzo</a> and
                 <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
             </div>
-            <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>
     </footer>
 </template>

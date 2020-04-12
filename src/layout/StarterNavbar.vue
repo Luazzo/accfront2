@@ -23,10 +23,6 @@
                 Entreprise
             </router-link>
 
-            <router-link class="nav-item nav-link" to="/presentation">
-                Conditions générales
-            </router-link>
-
             <router-link class="nav-item nav-link" to="/contact">
                 Contact
             </router-link>
