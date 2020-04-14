@@ -11,7 +11,7 @@
                     <div class="col-6">
                         <div class="card card-signup">
                             <div class="card-body">
-                                <h3 class="card-title text-center">Connexion</h3>
+                                <h3 class="card-title text-center">Inscription</h3>
                                 <div class="card-body">
                                     <div class="alert alert-danger" v-if="has_error && !success">
                                         <p v-if="error == 'registration_validation_error'">Validation Errors.</p>

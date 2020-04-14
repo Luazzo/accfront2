@@ -2,9 +2,7 @@
     <div class="section section-pills">
         <div class="container">
             <div id="navigation-pills">
-                <div class="title">
-                    <h2>Nos assurances</h2>
-                </div>
+                <h2 class="title">Nos assurances</h2>
                 <div class="row">
                     <div class="col-md-10">
                         <tabs pills type="primary" vertical class="row">

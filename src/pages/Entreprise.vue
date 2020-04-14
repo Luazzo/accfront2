@@ -244,5 +244,6 @@
 
 <style scoped>
     .labelError{ color: #fa7a50; float: left; margin-bottom: 0px;}
+    .section{padding: 0;}
 
 </style>

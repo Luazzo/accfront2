@@ -13,7 +13,7 @@
             <div class="contact-content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-5 ml-auto mr-auto">
+                        <div class="col-md-6 ml-auto mr-auto">
                             <h2 class="title">Envoyez nous un message</h2>
                             <p class="description">Vous pouvez nous contacter pour tout ce qui concerne nos produits.
                                 Nous prendrons contact avec vous dans les plus brefs délais.
