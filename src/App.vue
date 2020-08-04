@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import {mapActions, mapState} from "vuex"
+  import {mapActions, mapState, mapMutations} from "vuex"
   import StarterNavbar from './layout/StarterNavbar';
   import MainFooter from './layout/MainFooter';
 
@@ -24,9 +24,13 @@
     },
     methods:{
       ...mapActions(["getUser"]),
+      ...mapMutations(['SET_LOGGEDIN'])
 
     },
     mounted(){
+      //this.SET_LOGGEDIN(false);
+
+
       if(this.token){
         this.getUser({
           headers: {

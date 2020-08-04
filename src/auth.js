@@ -14,7 +14,7 @@ const config = {
 
   // API endpoints used in Vue Auth.
   registerData: {
-    url: 'register',
+    url: 'auth/register',
     method: 'POST',
     redirect: '/login'
   },

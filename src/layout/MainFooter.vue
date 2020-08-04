@@ -6,16 +6,19 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="https:///blog.creative-tim.com">
+                        <a href="https://blog.creative-tim.com"  target="_blank">
                             Blog
                         </a>
                     </li>
                     <li>
-
                         <router-link class="nav-item nav-link" to="/license">
                             License
                         </router-link>
-
+                    </li>
+                    <li>
+                        <a href="https://www.baloise.be/fr/a-propos-de-nous/privacy.html"  target="_blank">
+                            Vie privée
+                        </a>
                     </li>
                 </ul>
             </nav>

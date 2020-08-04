@@ -34,7 +34,7 @@
                                 <fg-input
                                     placeholder="Email..."
                                     v-model="form.email"
-                                    addon-left-icon="now-ui-icons users_circle-08">
+                                    addon-left-icon="now-ui-icons ui-1_email-85">
                                 </fg-input>
 
                                 <label v-if="errors.gsm" class="labelError">GSM est obligatoire.</label>

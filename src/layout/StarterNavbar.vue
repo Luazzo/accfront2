@@ -27,36 +27,34 @@
                 Contact
             </router-link>
 
-            <drop-down tag="li" title="" icon="now-ui-icons users_single-02" class="nav-item">
-                <template v-if="loggedIn" >
-                    <li class="nav-item nav-link" style="cursor: pointer;" @click.prevent="logoutUser">
-                        Deconnexion
-                    </li>
-                </template>
-                <template v-else>
-                    <router-link class="nav-item nav-link" to="/register">
-                        Inscription
-                    </router-link>
+            <a class="nav-item nav-link" href="https://app.mybroker.be/cs/home/index/71228" target="_blank">
+                Espace client
+            </a>
 
-                    <router-link class="nav-item nav-link" to="/login">
-                        Connexion
-                    </router-link>
-                </template>
-            </drop-down>
+
+            <li v-show="loggedIn" class="nav-item nav-link" style="cursor: pointer;" @click.prevent="logoutUser">
+                Deconnexion
+            </li>
+            <router-link v-show="!loggedIn" class="nav-item nav-link" to="/register">
+                Inscription
+            </router-link>
+
+            <router-link v-show="!loggedIn" class="nav-item nav-link" to="/login">
+                Connexion
+            </router-link>
         </template>
 
     </navbar>
 </template>
 
 <script>
-    import { DropDown, NavbarToggleButton, Navbar, NavLink } from '@/components';
+    import { Navbar, } from '@/components';
     import { Popover } from 'element-ui'
     import { mapState, mapActions} from "vuex";
 
     export default {
         name: 'starter-navbar',
         components: {
-            DropDown,
             Navbar,
             [Popover.name]: Popover
         },

@@ -4,7 +4,6 @@ import axios from 'axios';
 import router from "../router";
 import createPersistedState from "vuex-persistedstate";
 
-const BASE_URL = 'http://127.0.0.1:8000/api';
 Vue.use(VueX)
 
 
@@ -75,8 +74,6 @@ export const store = new VueX.Store({
                 .catch(error => {
                     console.log(error);
                 });
-            /* */
-
         },
 
         loginUser({commit,state}, payload){
@@ -84,7 +81,7 @@ export const store = new VueX.Store({
             axios.post("auth/login", payload)
                 .then(response => {
 
-                    commit('SET_TOKEN', JSON.stringify(response.data.accessToken))
+                    commit('SET_TOKEN', JSON.stringify(response.data.access_token)) //access_token => parfois il faut remplacer par accessToken
 
                     commit('SET_LOGGEDIN', true)
 

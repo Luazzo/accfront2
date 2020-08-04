@@ -158,31 +158,24 @@
                 }
 
                 if (!Object.values(this.errors).some(value => true)) {
-                    axios.post('register', {
+                    axios.post('auth/register',
+                        {
                         name: this.form.name,
                         email: this.form.email,
                         password: this.form.password,
                         password_confirmation: this.form.password_confirmation,
+                        },
+                        {
+                            headers: {
+                                'Accept' : 'application/json'
+                            }
                         })
                         .then(response => {
-                            this.$router.push('/login')
+                           this.$router.push('/login')
                         })
                         .catch(error => {
                             console.log(error);
                         });
-                    /*if(this.is_admin != null || this.is_admin == 1) url = "http://localhost:8000/register-admin"
-                    this.$http.post( "register", {
-                        name: this.name,
-                        email: this.email,
-                        password: this.password,
-                        password_confirmation: this.password_confirmation,
-                    })
-                        .then(response => {
-                            this.$router.push('/login')
-                        })
-                        .catch(function (error) {
-                            console.error(error.response);
-                        });*/
                 }
             }
         }

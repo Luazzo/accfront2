@@ -73,8 +73,8 @@ const router = new Router({
     },
     // USER ROUTES
     {
-      path: '/dashboard',
-      name: 'dashboard',
+      path: '/admin',
+      name: 'admin',
       component: {default: Dashboard, header: MainNavbar, footer: MainFooter},
       meta: {
         auth: true

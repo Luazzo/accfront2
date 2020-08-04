@@ -61,8 +61,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h2 class="title">AConseils, qui sommes-nous ?</h2>
-                        <h4 class="description">AConseils, nous sommes des intermédiaires en assurances professionnels et totalement indépendants qui offrons des solutions sur mesures à nos affiliés pour la couvertures d’assurance de leurs patrimoines.
+                        <h2 class="title">Qui sommes-nous ?</h2>
+                        <h4 class="description">Nous sommes des intermédiaires en assurances professionnels et totalement indépendants qui offrons des solutions sur mesures à nos affiliés pour la couvertures d’assurance de leurs patrimoines.
                             Nous garantissons un servie et un suivi personnalisé en partenariat avec nos partenaires dans le but de satisfaire au mieux les demandes de nos affiliés.
                             Si vous êtes intéressé par nos solutions, vous pouvez nous écrire via le menu « contact ».</h4>
                     </div>
@@ -198,9 +198,9 @@
             ...mapState(["token","loggedIn"])
         },
         mounted() {
+            //localStorage.clear();
             console.log('token',this.token)
             console.log('loggedIn', this.loggedIn)
-            //console.log(this.$localStorage.token)
         }
     }
 </script>

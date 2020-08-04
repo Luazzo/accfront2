@@ -77,9 +77,14 @@
                 if (this.email.length > 0 && this.password.length > 0) {
 
                     this.loginUser({
-                        email: this.email,
-                        password: this.password,
-                    })
+                            email: this.email,
+                            password: this.password,
+                        },
+                        {
+                            headers: {
+                                'Accept' : 'application/json'
+                            }
+                        })
                 } else {
                     this.password = ""
 
@@ -87,6 +92,7 @@
                 }
             },
         },
+
         mounted(){
             console.log('token', this.token)
             console.log('loggedIn', this.loggedIn)

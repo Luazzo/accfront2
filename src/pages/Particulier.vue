@@ -2,8 +2,9 @@
     <div>
         <div class="header-1">
             <div class="page-header header-filter">
-                <div class="page-header-image" style="background-image: url('img/bg16.jpg')"></div>
-                <div class="content-center">
+                <div class="page-header-image" style="background-image: url('img/all_family.jpg');
+                background-repeat: no-repeat;background-size: cover;"></div>
+                <div class="content-center" style="top: 65%;">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-7 ml-auto text-right">

@@ -2,7 +2,7 @@
     <div>
         <div class="header-1">
             <div class="page-header header-filter">
-                <div class="page-header-image" style="background-image: url('img/bg24.jpg')"></div>
+                <div class="page-header-image" style="background-image: url('img/plan_masson.jpg')"></div>
                 <div class="content-center">
                     <div class="container">
                         <div class="row">
@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-md-5 ml-auto">
                         <card type="background" raised class="card-background-product"
-                              style="background-image: url('img/project8.jpg')">
+                              style="background-image: url('img/calculatrice.jpg')">
                             <h2 class="card-title">Social Analytics</h2>
                             <p class="card-description">
                                 Insight to help you create, connect, and convert. Understand Your Audience's
@@ -64,7 +64,7 @@
                         />
                         <info-section type="danger"
                                       icon="now-ui-icons arrows-1_refresh-69"
-                                      title="Retour de 15% "
+                                      title="Ristourne jusqu'à 15% "
                                       description="Restitution d’une part de votre prime annuelle (jusqu’à 15%)."
                         />
                         <info-section type="danger"
@@ -74,7 +74,7 @@
                         />
                         <info-section type="danger"
                                       icon="now-ui-icons shopping_delivery-fast"
-                                      title="Très Avantageux"
+                                      title="Tarif spécial"
                                       description="Tarif spécial pour les flottes et véhicules."
                         />
                     </div>
