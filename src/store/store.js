@@ -12,13 +12,15 @@ export const store = new VueX.Store({
     state:{
         user: {},
         token : "",
-        loggedIn: false
+        loggedIn: false,
+        compagnies : Array
     },
 
     getters:{
         user : state =>{ return state.user },
         token : state =>{ return state.token },
         loggedIn : state =>{ return state.loggedIn },
+        compagnies : state =>{ return state.compagnies },
     },
 
     mutations:{
@@ -31,6 +33,9 @@ export const store = new VueX.Store({
         SET_LOGGEDIN(state, newValue){
             return state.loggedIn = newValue
         },
+        SET_COMPAGNIES(state, newValue){
+            state.compagnies = newValue
+        },
 
 
         /**
@@ -42,6 +47,19 @@ export const store = new VueX.Store({
     },
 
     actions:{
+
+        getCompagnies({state, commit}){ //sans {} crée un error 400 : token undefined
+
+            axios.post("compagnies")
+                .then(response => {
+
+                    commit('SET_COMPAGNIES', response.data)
+
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
 
 
         sendEmail({state}, payload){

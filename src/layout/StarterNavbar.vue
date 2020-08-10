@@ -27,28 +27,33 @@
                 Contact
             </router-link>
 
-            <a class="nav-item nav-link" href="https://app.mybroker.be/cs/home/index/71228" target="_blank">
-                Espace client
-            </a>
+
+            <drop-down tag="li" title="Espace client" class="nav-item">
+                <a class="" href="https://app.mybroker.be/cs/home/index/71228" target="_blank">
+                    <div style="background: url(img/mybroker_logo.png) no-repeat 30% center; height: 40px; background-size: contain"> </div>
+                </a>
+                <li v-show="loggedIn" class="nav-item nav-link" style="cursor: pointer; text-transform: uppercase;" @click.prevent="logoutUser">
+                    Deconnexion
+                </li>
+                <nav-link v-show="!loggedIn" to="/register">
+                    Inscription
+                </nav-link>
+
+                <nav-link v-show="!loggedIn" to="/login">
+                    Connexion
+                </nav-link>
+            </drop-down>
 
 
-            <li v-show="loggedIn" class="nav-item nav-link" style="cursor: pointer;" @click.prevent="logoutUser">
-                Deconnexion
-            </li>
-            <router-link v-show="!loggedIn" class="nav-item nav-link" to="/register">
-                Inscription
-            </router-link>
 
-            <router-link v-show="!loggedIn" class="nav-item nav-link" to="/login">
-                Connexion
-            </router-link>
         </template>
 
     </navbar>
 </template>
 
 <script>
-    import { Navbar, } from '@/components';
+
+    import { DropDown, Navbar, NavLink} from '@/components';
     import { Popover } from 'element-ui'
     import { mapState, mapActions} from "vuex";
 
@@ -56,6 +61,8 @@
         name: 'starter-navbar',
         components: {
             Navbar,
+            DropDown,
+            NavLink,
             [Popover.name]: Popover
         },
 

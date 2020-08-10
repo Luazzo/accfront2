@@ -78,57 +78,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 ml-auto">
-                        <a href="https://www.arag.be/fr/blog/business/des-conditions-generales-pourquoi-est-ce-utile-/"
-                           title="Conditions générales">
-                            <img class="img-partenaire" v-lazy="'img/partenaires/arag.png'" alt="arag"/>
-                        </a>
-                    </div>
-                    <div class="col-md-3 ml-auto">
-                        <a href="http://www.ardenneprevoyante.be/fr/conditions-generales"
-                           title="Conditions générales">
-                            <img class="img-partenaire" v-lazy="'img/partenaires/ardennes.png'" alt="ardennes"/>
-                        </a>
-                    </div>
-                    <div class="col-md-3 ml-auto">
-                        <a href="https://bnpparibascardif.be/documents/66925/93266/201702_CG_stpp+_FR/05ec10f7-839f-8429-bff6-d05414f27f5f"
-                           title="Conditions générales">
-                            <img class="img-partenaire" v-lazy="'img/partenaires/cardif.png'" alt="cardif"/>
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="https://www.baloise.be/fr/contact-service/conditions-generales.html"
-                           title="Conditions générales">
-                            <img class="img-partenaire" v-lazy="'img/partenaires/baloise.png'" alt="baloise"/>
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="https://www.das.be/das/ewcm/ewcm.nsf/0/643EDA480ADF733BC1257FBD0037EF9E/$file/F5010%20Conditions%20ge%CC%81ne%CC%81rales.pdf"
-                           title="Conditions générales">
-                            <img class="img-partenaire" v-lazy="'img/partenaires/das.png'" alt="das"/>
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="https://biblio.dkv.be/pdfbib.ashx?lang=fr&id=11901.pdf"
-                           title="Conditions générales">
-                            <img class="img-partenaire" v-lazy="'img/partenaires/dkv.jpg'" alt="dkv"/>
-                        </a>
-                    </div>
-                    <div class="col-md-3 mr-auto">
-                        <a href="https://www.euromex.be/fr/conditions-de-polices"
-                           title="Conditions générales">
-                            <img class="img-partenaire" v-lazy="'img/partenaires/euromex.png'" alt="euromex"/>
-                        </a>
-                    </div>
-                    <div class="col-md-3 mr-auto">
-                        <a href="https://www.arag.be/fr/blog/business/des-conditions-generales-pourquoi-est-ce-utile-/"
-                           title="Conditions générales">
-                            <img class="img-partenaire" v-lazy="'img/partenaires/europ.jpg'" alt="europ"/>
-                        </a>
-                    </div>
+                    <Compagny v-for="compagny in compagnies" :key="compagny.id" :compagny="compagny"></Compagny><!---->
                 </div>
+
             </div>
         </div>
+
+
+        <!--MY BROKER-->
         <div id="mybroker" class="subscribe-line subscribe-line-image"
              style="background-image: url('img/project15-blue.jpg');
                     position: relative; padding: 0; width: 100%; ">
@@ -175,12 +132,14 @@
 
 <script>
     import { Button, HeadImage,InfoSection, FormGroupInput } from '../components';
-    import {mapState, mapActions, mapGetters, mapMutations} from "vuex"
+    import {mapState, mapActions} from "vuex"
+    import Compagny from "../pages/components/Compagny"
 
     export default {
         name: 'accueil',
         bodyClass: 'contact-page',
         components: {
+            Compagny,
             HeadImage,
             [Button.name]: Button,
             [FormGroupInput.name]: FormGroupInput,
@@ -195,15 +154,22 @@
             }
         },
         computed:{
-            ...mapState(["token","loggedIn"])
+            ...mapState(["token","loggedIn","compagnies"])
+        },
+        methods:{
+            ...mapActions(['getCompagnies'])
         },
         mounted() {
             //localStorage.clear();
-            console.log('token',this.token)
-            console.log('loggedIn', this.loggedIn)
+            this.getCompagnies();
+            //console.log('token',this.token)
+            //console.log('loggedIn', this.loggedIn)
         }
     }
 </script>
+<style lang="scss">
+
+</style>
 <style>
     .downloads{
         margin-right: 20px;
@@ -214,11 +180,9 @@
         clear: both;
     }
     .img-partenaire {
-        padding: 15px;
-        height: 80px;
+        padding: 0;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto 0 ;
     }
 
 </style>
