@@ -21,7 +21,7 @@
         computed:{
             styleImg(){
                 let urlImg = 'http://127.0.0.1:8000/storage/'+ this.convertString(this.compagny.image);
-                return "background: url("+ urlImg +") no-repeat center center; height: 60px; background-size: contain";
+                return "background: url("+ urlImg +") no-repeat center center; height: 50px; background-size: contain";
             }
         },
         methods:{

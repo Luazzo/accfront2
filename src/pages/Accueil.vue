@@ -2,6 +2,7 @@
     <div class="wrapper contact-page">
         <HeadImage></HeadImage>
 
+
         <!--FEATURES-->
         <div class="about-description text-center">
             <div class="features-3">
@@ -16,36 +17,44 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="info info-hover">
-                                <div class="icon icon-success icon-circle">
-                                    <i class="now-ui-icons users_single-02"></i>
-                                </div>
+                                <router-link :to="{ name:'particulier'}">
+                                    <div class="icon icon-success icon-circle">
+                                        <i class="now-ui-icons users_single-02"></i>
+                                    </div>
+                                </router-link>
                                 <h4 class="info-title text-success">Particulier</h4>
                                 <p class="description">Regroupement avec une mensualité gratuite et franchise anglaise.</p>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="info info-hover">
-                                <div class="icon icon-info icon-circle">
-                                    <i class="now-ui-icons business_briefcase-24"></i>
-                                </div>
+                                <router-link :to="{ name:'entreprise'}">
+                                    <div class="icon icon-info icon-circle">
+                                        <i class="now-ui-icons business_briefcase-24"></i>
+                                    </div>
+                                </router-link>
                                 <h4 class="info-title text-info">Entreprise</h4>
                                 <p class="description">Plan PME. mensualité gratuite et remboursement jusqu'à 15% de votre prime d'assurence.</p>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="info info-hover">
-                                <div class="icon icon-primary icon-circle">
-                                    <i class="now-ui-icons media-2_sound-wave"></i>
-                                </div>
+                                <router-link :to="{ name:'accueil'}">
+                                    <div class="icon icon-primary icon-circle">
+                                        <i class="now-ui-icons media-2_sound-wave"></i>
+                                    </div>
+                                </router-link>
                                 <h4 class="info-title text-danger">Vie & Hospi</h4>
                                 <p class="description">Rendement optimisé, securité integrale.</p>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="info info-hover">
-                                <div class="icon icon-warning icon-circle">
-                                    <i class="now-ui-icons objects_support-17"></i>
-                                </div>
+                                <router-link :to="{ name:'accueil'}">
+                                    <div class="icon icon-warning icon-circle">
+                                        <i class="now-ui-icons objects_support-17"></i>
+                                    </div>
+                                </router-link>
                                 <h4 class="info-title text-warning">Assistance juridique</h4>
                                 <p class="description">Repense aux défis par l'action et les conseils des specialistes independants.</p>
                             </div>
@@ -54,7 +63,6 @@
                 </div>
             </div>
         </div>
-
 
         <!--QUI SOMME NOUS-->
         <div class="team-3 section-image" style="background-image: url('img/bg24-fonce.jpg')">
@@ -69,6 +77,12 @@
                 </div>
             </div>
         </div>
+
+        <!--SLIDER PROMOS-->
+        <Promos></Promos>
+
+
+
 
         <!--NOS PARTENAIRES-->
         <div class="our-clients section">
@@ -131,15 +145,17 @@
 </template>
 
 <script>
-    import { Button, HeadImage,InfoSection, FormGroupInput } from '../components';
+    import { Button, HeadImage, FormGroupInput } from '../components';
     import {mapState, mapActions} from "vuex"
     import Compagny from "../pages/components/Compagny"
+    import Promos from "../pages/components/Promos"
 
     export default {
         name: 'accueil',
         bodyClass: 'contact-page',
         components: {
             Compagny,
+            Promos,
             HeadImage,
             [Button.name]: Button,
             [FormGroupInput.name]: FormGroupInput,
@@ -162,6 +178,8 @@
         mounted() {
             //localStorage.clear();
             this.getCompagnies();
+            //this.getPromos();
+            //console.log(this.promos)
             //console.log('token',this.token)
             //console.log('loggedIn', this.loggedIn)
         }

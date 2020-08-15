@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Accueil from "./pages/Accueil.vue";
+import Promos from "./pages/Promos.vue";
+import Promo from "./pages/Promo.vue";
 import Contact from "./pages/ContactUs.vue";
 import Particulier from "./pages/Particulier.vue";
 import Entreprise from "./pages/Entreprise.vue";
@@ -27,6 +29,18 @@ const router = new Router({
       name: "accueil",
       components: {default: Accueil},
       props: {header: {colorOnScroll: 450}}
+    },
+    {
+      path: "/promos/",
+      name: "promos",
+      components: {default: Promos},
+      props: {header: {colorOnScroll: 450}}
+    },
+    {
+      path: "/promos/:id",
+      name: "promo",
+      components: {default: Promo},
+      props: {default: true, header: {colorOnScroll: 450}}
     },
     {
       path: "/particulier",

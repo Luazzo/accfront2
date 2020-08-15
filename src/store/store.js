@@ -13,7 +13,9 @@ export const store = new VueX.Store({
         user: {},
         token : "",
         loggedIn: false,
-        compagnies : Array
+        compagnies : Array,
+        promos : Array,
+        promo : Object
     },
 
     getters:{
@@ -21,21 +23,17 @@ export const store = new VueX.Store({
         token : state =>{ return state.token },
         loggedIn : state =>{ return state.loggedIn },
         compagnies : state =>{ return state.compagnies },
+        promos : state =>{ return state.promos },
+        promo : state =>{ return state.promo },
     },
 
     mutations:{
-        SET_USER(state,newValue){
-            return state.user = newValue
-        },
-        SET_TOKEN(state,newValue){
-            return state.token = newValue
-        },
-        SET_LOGGEDIN(state, newValue){
-            return state.loggedIn = newValue
-        },
-        SET_COMPAGNIES(state, newValue){
-            state.compagnies = newValue
-        },
+        SET_USER( state,newValue ){ return state.user = newValue },
+        SET_TOKEN( state,newValue ){ return state.token = newValue },
+        SET_LOGGEDIN( state, newValue ){ return state.loggedIn = newValue },
+        SET_COMPAGNIES( state, newValue ){ state.compagnies = newValue },
+        SET_PROMOS( state, newValue ){ state.promos = newValue },
+        SET_PROMO( state, newValue ){ state.promo = newValue },
 
 
         /**
@@ -48,6 +46,28 @@ export const store = new VueX.Store({
 
     actions:{
 
+        getPromo({state, commit}, payload){
+            //console.log("payload " + payload)
+            axios.post("promos/"+ payload)
+                .then(response => {
+                    commit('SET_PROMO', response.data)
+                    //console.log(response.data)
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
+        getPromos({state, commit}){ //sans {} crée un error 400 : token undefined
+
+            axios.post("promos")
+                .then(response => {
+                    commit('SET_PROMOS', response.data)
+
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
         getCompagnies({state, commit}){ //sans {} crée un error 400 : token undefined
 
             axios.post("compagnies")
