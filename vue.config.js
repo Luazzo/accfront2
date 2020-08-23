@@ -1,6 +1,6 @@
 module.exports = {
   pwa: {
-    name: 'ACConseils',
+    name: 'AC Conseils',
     themeColor: '#f96332',
     msTileColor: '#2ca8ff',
     appleMobileWebAppCapable: 'yes',

@@ -1,3 +1,13 @@
+if (workbox) {
+    console.log(`Workbox is loaded`);
+
+    workbox.precaching.precacheAndRoute(self.__precacheManifest);
+
+}
+else {
+    console.log(`Workbox didn't load`);
+}
+
 workbox.core.setCacheNameDetails({ prefix: 'd4' })
 //Change this value every time before you build
 const LATEST_VERSION = 'v1.5'

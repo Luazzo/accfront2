@@ -103,9 +103,9 @@
     export default {
         name: 'contact-us',
         bodyClass: 'contact-page',
+        title: 'Contactez-nous - AC Conseils',
         components: {
             InfoSection,
-            HeadImage,
             [Button.name]: Button,
             [FormGroupInput.name]: FormGroupInput,
         },

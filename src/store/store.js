@@ -72,7 +72,7 @@ export const store = new VueX.Store({
 
             axios.post("compagnies")
                 .then(response => {
-
+                    console.log(response.data);
                     commit('SET_COMPAGNIES', response.data)
 
                 })

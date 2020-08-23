@@ -13,6 +13,9 @@ import VueAuth from '@websanova/vue-auth'
 import VueAxios from 'vue-axios'
 import auth from './auth'
 import FlashMessage from 'vue-flash-message';
+import titleMixin from './titleMixin'
+
+Vue.mixin(titleMixin)
 
 //Message de confirmation post-emailing
 Vue.use(FlashMessage);

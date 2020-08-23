@@ -36,7 +36,7 @@
                                                     addon-left-icon="now-ui-icons ui-1_email-85">
                                             </fg-input>
 
-                                            <label v-if="errors.password" class="labelError">Mot de pass est obligatoire.</label>
+                                            <label v-if="errors.password" class="labelError">Mot de pass doit contenir de 7 à 15 caractères contenant au moins un chiffre numérique et un caractère spécial.</label>
                                             <fg-input
                                                     type="password"
                                                     class="input-lg"
@@ -59,35 +59,8 @@
                                                 <n-button type="primary" round block size="lg" v-on:click="sendForm" >Envoyer</n-button>
                                                 -->
                                             </div>
-
-
                                         </div>
                                     </div>
-
-<!--
-                                    <form autocomplete="off" @submit.prevent="register" v-if="!success" method="post">
-                                        <div class="form-group" v-bind:class="{ 'has-error': has_error && errors.name }">
-                                            <input  addon-left-icon="now-ui-icons users_circle-08"
-                                                    v-model="name"
-                                                    type="text" id="name" class="form-control" placeholder="Name">
-                                            <span class="help-block" v-if="has_error && errors.name">{{ errors.name }}</span>
-                                        </div>
-                                        <div class="form-group" v-bind:class="{ 'has-error': has_error && errors.email }">
-                                            <input type="email" id="email" class="form-control"
-                                                   placeholder="user@example.com" v-model="email">
-                                            <span class="help-block" v-if="has_error && errors.email">{{ errors.email }}</span>
-                                        </div>
-                                        <div class="form-group" v-bind:class="{ 'has-error': has_error && errors.password }">
-                                            <input type="password" id="password" class="form-control" v-model="password">
-                                            <span class="help-block" v-if="has_error && errors.password">{{ errors.password }}</span>
-                                        </div>
-                                        <div class="form-group" v-bind:class="{ 'has-error': has_error && errors.password }">
-                                            <input type="password" id="password_confirmation" class="form-control" v-model="password_confirmation">
-                                        </div>
-                                        <div class="card-footer text-center">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
-                                    </form>-->
                                 </div>
                             </div>
                         </div>
@@ -134,6 +107,13 @@
                 let re = /(.+)@(.+){2,}\.(.+){2,}/;
                 return re.test(email);
             },
+            checkPassword(inputtxt) {
+                //   Mot de pass doit contenir de 7 à 15 caractères
+                //   contenant au moins un chiffre numérique
+                //   et un caractère spécial.
+                let passwd =  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+                return !!inputtxt.match(passwd);
+            },
             register(){
                 this.errors = {}
                 //validation des champs
@@ -148,8 +128,12 @@
                 if(!this.form.password){
                     this.errors.password = true
                 }else{
-                    if(this.form.password_confirmation !== this.form.password){
-                        this.errors.password_confirmation = true
+                    if( this.checkPassword(this.form.password) === true){
+                        if( this.form.password_confirmation !== this.form.password){
+                            this.errors.password_confirmation = true
+                        }
+                    } else{
+                        this.errors.password = true
                     }
                 }
 
@@ -160,10 +144,10 @@
                 if (!Object.values(this.errors).some(value => true)) {
                     axios.post('auth/register',
                         {
-                        name: this.form.name,
-                        email: this.form.email,
-                        password: this.form.password,
-                        password_confirmation: this.form.password_confirmation,
+                            name: this.form.name,
+                            email: this.form.email,
+                            password: this.form.password,
+                            password_confirmation: this.form.password_confirmation,
                         },
                         {
                             headers: {
@@ -171,7 +155,7 @@
                             }
                         })
                         .then(response => {
-                           this.$router.push('/login')
+                            this.$router.push('/login')
                         })
                         .catch(error => {
                             console.log(error);
