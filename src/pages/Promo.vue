@@ -17,7 +17,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 ml-auto mr-auto">
-                        <h2 class="title">Latest Blogposts 3</h2>
+                        <h2 class="title">Promotions</h2>
                         <br />
                         <card type="blog" plain>
                             <div class="row">
@@ -103,6 +103,8 @@
 
     export default {
         name: "promo",
+        title: 'AC Conseils | Promo',
+        description: 'Découvrez nos promotions',
         data(){
             return{
             }

@@ -15,7 +15,7 @@
                                     nous nous efforçons de vous couvrir<br>
                                     contre tout risque probable en mettant<br>
                                     une attention particulière sur les défauts.<br>
-                                    Nous faisons en sort que notre repense soit <br>
+                                    Nous faisons en sort que notre offre soit <br>
                                     la plus compétitive possible.
                                 </h4>
                                 <br/>
@@ -108,8 +108,9 @@
     import axios from "axios";
     export default {
         name: "Particulier",
+        title: 'AC Conseils | Particulier',
+        description: "Que vous soyez Locataire ou Propriétaire et en fonction de l’étendu de votre patrimoine...",
         components:{
-
             Pills,
             [Button.name]: Button,
             [FormGroupInput.name]: FormGroupInput
@@ -177,6 +178,10 @@
                 }
             },
         },
+        created(){
+                  console.log("Que vous soyez Locataire ou Propriétaire et en fonction de l’étendu de votre patrimoine...".length);
+
+        }
     }
 
 

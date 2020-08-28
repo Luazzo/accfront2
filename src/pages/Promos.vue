@@ -25,6 +25,8 @@
     import axios from "axios";
     export default {
         name: "promos",
+        title: 'AC Conseils | Promotions',
+        description: 'Découvrez nos promotions!',
         components: {
             [Button.name]: Button,
             [FormGroupInput.name]: FormGroupInput,

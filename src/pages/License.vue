@@ -21,7 +21,9 @@
 
 <script>
     export default {
-        name: "License"
+        name: "License",
+        title: 'AC Conseils | License',
+        description: 'Icons made by Freepik',
     }
 </script>
 

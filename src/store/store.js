@@ -15,7 +15,7 @@ export const store = new VueX.Store({
         loggedIn: false,
         compagnies : Array,
         promos : Array,
-        promo : Object
+        promo : Object,
     },
 
     getters:{
@@ -72,7 +72,7 @@ export const store = new VueX.Store({
 
             axios.post("compagnies")
                 .then(response => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     commit('SET_COMPAGNIES', response.data)
 
                 })
@@ -87,7 +87,7 @@ export const store = new VueX.Store({
             axios.post('contact', payload )
                 .then(response => {
 
-                    console.log("email", response.data)
+                    //console.log("email", response.data)
 
                 })
                 .catch(error => {
@@ -96,17 +96,16 @@ export const store = new VueX.Store({
 
         },
 
-        getUser({state}){ //sans {} crée un error 400 : token undefined
+        getUser({commit,state}){ //sans {} crée un error 400 : token undefined
 
             axios.get("auth/user",{
-                headers: {
-                    'Accept' : 'application/json',
-                    'Authorization': 'Bearer '+ JSON.parse(state.token),
+                params: {
+                    token: JSON.parse(state.token)
                 }
             })
                 .then(response => {
-
-                    console.log("user", response.data)
+                    //console.log("user", response.data)
+                    commit('SET_USER', response.data)
 
                 })
                 .catch(error => {
@@ -116,22 +115,26 @@ export const store = new VueX.Store({
 
         loginUser({commit,state}, payload){
 
-            axios.post("auth/login", payload)
+            axios.post("auth/login", payload,{
+                headers: {
+                    'Accept' : 'application/json',
+                }
+            })
                 .then(response => {
 
                     commit('SET_TOKEN', JSON.stringify(response.data.access_token)) //access_token => parfois il faut remplacer par accessToken
 
                     commit('SET_LOGGEDIN', true)
+                    commit('SET_USER', response.data.user.original)
 
-                    console.log("user", state.user)
+                    //console.log("user", response.data.user.original.name)
 
-                    router.push({name:'accueil'})
+                    router.push({name:'profil'}).catch(err => {})
 
                 })
                 .catch(error => {
                     console.log(error);
                 });
-
         },
 
         logoutUser({commit,state}) {
@@ -142,10 +145,13 @@ export const store = new VueX.Store({
                 .then(response => {
                     if (response.data.message) {
 
-                        console.log(response.data.message)
-                        router.push({name:'login'})
+                       // console.log(response.data.message);
 
-                        commit('SET_TOKEN', '')
+                        if (router.currentRoute.name!== 'accueil'){
+                            router.push({name:'accueil'})
+                        }
+
+                        commit('SET_TOKEN', '');
 
                         commit('SET_LOGGEDIN', false)
 
@@ -153,7 +159,7 @@ export const store = new VueX.Store({
                     }
                 })
                 .catch(function (error) {
-                    commit('SET_TOKEN', '')
+                    commit('SET_TOKEN', '');
                     console.error(error.response);
                 });
         }

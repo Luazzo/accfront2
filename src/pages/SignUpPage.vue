@@ -77,6 +77,8 @@
 
     export default {
         name: 'signup-page',
+        title: 'AC Conseils | Inscrivez-vous',
+        description: 'Inscription au site AC Conseils',
         bodyClass: 'signup-page',
         components: {
             [Button.name]: Button,

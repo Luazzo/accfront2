@@ -32,7 +32,10 @@
                 <a class="" href="https://app.mybroker.be/cs/home/index/71228" target="_blank">
                     <div style="background: url(img/mybroker_logo.png) no-repeat 30% center; height: 40px; background-size: contain"> </div>
                 </a>
-                <li v-show="loggedIn" class="nav-item nav-link" style="cursor: pointer; text-transform: uppercase;" @click.prevent="logoutUser">
+                <nav-link v-show="loggedIn" to="/profil">
+                    <span style=" text-transform: uppercase;" >Profil</span>
+                </nav-link>
+                <li v-show="loggedIn" class="nav-item nav-link" style="cursor: pointer; padding-left:24px; text-transform: uppercase;" @click.prevent="logoutUser">
                     Deconnexion
                 </li>
                 <nav-link v-show="!loggedIn" to="/register">

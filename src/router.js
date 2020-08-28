@@ -11,10 +11,27 @@ import MainFooter from "./layout/MainFooter.vue"
 import Register from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
 import License from './pages/License'
-import Dashboard from './pages/ProfilePage'
-
+import ProfilePage from "./pages/ProfilePage";
+import {store} from './store/store';
 
 Vue.use(Router);
+
+const ifNotAuthenticated = (to, from, next) => {
+  if (!store.getters.loggedIn) {
+    next();
+    return
+  }
+  next('/')
+};
+
+const ifAuthenticated = (to, from, next) => {
+  if (store.getters.loggedIn) {
+    next();
+    return
+  }
+  next('/login')
+};
+
 
 const router = new Router({
 
@@ -31,7 +48,7 @@ const router = new Router({
       props: {header: {colorOnScroll: 450}}
     },
     {
-      path: "/promos/",
+      path: "/promos",
       name: "promos",
       components: {default: Promos},
       props: {header: {colorOnScroll: 450}}
@@ -55,6 +72,11 @@ const router = new Router({
       props: {header: {colorOnScroll: 450}}
     },
     {
+      path: '/license',
+      name: 'license',
+      component: License,
+    },
+    {
       path: "/contact",
       name: "contact",
       components: {default: Contact},
@@ -65,34 +87,20 @@ const router = new Router({
       name: "login",
       components: {default: LoginPage},
       props: {header: {colorOnScroll: 450}},
-      meta: {
-        auth: false
-      }
+      beforeEnter: ifNotAuthenticated,
     },
     {
       path: '/register',
       name: 'register',
       component: Register,
-      meta: {
-        auth: false
-      }
+      beforeEnter: ifNotAuthenticated,
     },
+    // USER ROUTE
     {
-      path: '/license',
-      name: 'license',
-      component: License,
-      meta: {
-        auth: false
-      }
-    },
-    // USER ROUTES
-    {
-      path: '/admin',
-      name: 'admin',
-      component: {default: Dashboard, header: MainNavbar, footer: MainFooter},
-      meta: {
-        auth: true
-      }
+      path: '/profil',
+      name: 'profil',
+      component: ProfilePage,
+      beforeEnter: ifAuthenticated,
     }
   ],
   scrollBehavior: (to) => {

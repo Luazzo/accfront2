@@ -29,7 +29,7 @@ Vue.router = router
 
 // Set Vue Axios
 Vue.use(VueAxios, axios)
-axios.defaults.baseURL = `http://127.0.0.1:8000/api/`
+axios.defaults.baseURL = `http://www.admin.acconseils.be/api/`
 
 // Set Vue authentication
 Vue.use(VueAuth, auth)

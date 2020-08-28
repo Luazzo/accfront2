@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-8 mr-auto ml-auto">
                             <h2 class="title">Écoute et Efficacité</h2>
-                            <h4 class="description">Nous vous écoutons. Nous analisons vos besoins. Nous faisons les études comparatives
+                            <h4 class="description">Nous vous écoutons. Nous analysons vos besoins. Nous faisons les études comparatives
                                 et en suite nous agissons avec éfficacité pour y repondre.</h4>
                         </div>
                     </div>
@@ -152,6 +152,8 @@
 
     export default {
         name: 'accueil',
+        title: 'AC Conseils Assurances | Accueil',
+        description: 'Nous vous écoutons. Nous analysons vos besoins. Nous faisons les études comparatives...',
         bodyClass: 'contact-page',
         components: {
             Compagny,

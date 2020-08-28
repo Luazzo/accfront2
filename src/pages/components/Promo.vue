@@ -21,6 +21,8 @@
 
 <script>
 
+    import * as CONFIG from "@/constants"
+
     export default {
         name: "Promo",
         data() {
@@ -33,11 +35,11 @@
         },
         computed:{
             styleImg(){
-                let urlImg = 'http://127.0.0.1:8000/storage/'+ this.convertString(this.promo.image);
+                let urlImg = CONFIG.URL_UPLOAD + this.convertString(this.promo.image);
                 return "background: url("+ urlImg +"); background-repeat: no-repeat; background-position: center center; height: 150px; background-size: auto 100% ;";
             },
             styleLogo(){
-                let urlImg = 'http://127.0.0.1:8000/storage/'+ this.convertString(this.promo.logo);
+                let urlImg = CONFIG.URL_UPLOAD + this.convertString(this.promo.logo);
                 return "background: url("+ urlImg +"); background-repeat: no-repeat; background-position: 0% center; height: 50px; text-shadow: 2px 2px 5px black; background-size: 70% auto ;";
             }
         },

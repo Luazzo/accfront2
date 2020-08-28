@@ -21,18 +21,8 @@
 
                         <template slot="raw-content">
                             <div class="card-footer text-center">
-                                <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block"
+                                <a href="#" class="btn btn-primary btn-round btn-lg btn-block"
                                    @click.prevent="login">Se connecter</a>
-                            </div>
-                            <div class="pull-left">
-                                <h6>
-                                    <a href="#pablo" class="link footer-link">Create Account</a>
-                                </h6>
-                            </div>
-                            <div class="pull-right">
-                                <h6>
-                                    <a href="#pablo" class="link footer-link">Need Help?</a>
-                                </h6>
                             </div>
                         </template>
                     </card>
@@ -44,11 +34,11 @@
 <script>
     import {mapState, mapActions} from "vuex"
     import { Card, Button, FormGroupInput } from '@/components';
-    import MainFooter from '@/layout/MainFooter';
-    import {eventBus} from "../eventBus.js"
 
     export default {
         name: 'login-page',
+        title: 'AC Conseils | Connexion',
+        description: "Connexion à l'espace privé" ,
         bodyClass: 'login-page',
         components: {
             Card,

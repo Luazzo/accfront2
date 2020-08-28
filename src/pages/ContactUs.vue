@@ -103,7 +103,8 @@
     export default {
         name: 'contact-us',
         bodyClass: 'contact-page',
-        title: 'Contactez-nous - AC Conseils',
+        title: 'AC Conseils | Contactez-nous',
+        description: 'Vous pouvez nous contacter pour tout ce qui concerne nos produits...',
         components: {
             InfoSection,
             [Button.name]: Button,

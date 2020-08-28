@@ -163,6 +163,8 @@
     import axios from "axios";
     export default {
         name: "Entreprise",
+        title: 'AC Conseils | Entreprises',
+        description: "Vous avez besoin d'un courtier indépendant ayant l'expérience nécessaire?",
         components: {
             Card,
             InfoSection,

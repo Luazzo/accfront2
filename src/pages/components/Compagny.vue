@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-3 ml-auto" style="padding-bottom: 40px; margin-right: auto; margin-left: auto;">
+    <div class="col-md-3 ml-auto compagny" >
         <a :href="compagny.lien" title="Conditions générales">
             <div v-bind:style="styleImg"> </div>
         </a>
@@ -7,8 +7,10 @@
 </template>
 
 <script>
+    import * as CONFIG from "@/constants"
+
     export default {
-        name: "Compagny",
+        name: "compagny",
         data() {
             return {
                 widthImg: null,
@@ -20,7 +22,8 @@
         },
         computed:{
             styleImg(){
-                let urlImg = 'http://127.0.0.1:8000/storage/'+ this.convertString(this.compagny.image);
+                let urlImg = CONFIG.URL_UPLOAD + this.convertString(this.compagny.image);
+                //console.log(urlImg);
                 return "background: url("+ urlImg +") no-repeat center center; height: 50px; background-size: contain";
             }
         },
@@ -33,12 +36,14 @@
             },
         },
         mounted(){
-            //console.log()
+            //console.log(CONFIG.URL_UPLOAD)
         },
     }
 </script>
 
 <style scoped>
-
+    .compagny{
+        padding-bottom: 40px; margin-right: auto; margin-left: auto;
+    }
 
 </style>
