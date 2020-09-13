@@ -1,19 +1,32 @@
 <template>
     <div type="testimonial" plain>
-        <div class="row">
-            <div class="col-md-4" :style="styleImg"></div>
-            <div class="col-md-8  mr-auto ml-auto" style=" text-align: left;">
-                <h3 class="titre" >{{promo.titre}}</h3>
-                <div class="row">
-                    <div class="col-md-8">
-                        <p style="color:white; text-align: center; font-size: 1em;">Offre est valable jusqu'au
-                            <br><span style="font-weight:bold; font-size: 1.8em;">{{convertDate(promo.fin)}}</span></p>
-                    </div>
 
-                    <div class="col-md-4" :style="styleLogo"></div>
+        <div v-if="getWidth">
+            <div class="row">
+                <div class="col-md-4" :style="styleImg"></div>
+
+                <div class="col-md-8  mr-auto ml-auto" style=" text-align: left;">
+                    <h3 class="titre" >{{promo.titre}}</h3>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p style="color:white; text-align: center; font-size: 1em;">Offre est valable jusqu'au
+                                <br><span style="font-weight:bold; font-size: 1.8em;">{{convertDate(promo.fin)}}</span></p>
+                        </div>
+                        <div class="col-md-4" :style="styleLogo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-else>
+            <div class="row">
+                <div class="col-md-12  mr-auto ml-auto" style=" text-align: left;">
+                    <h3 class="titre" >{{promo.titre}}</h3>
+
+                    <p style="color:white; text-align: center; font-size: 1em;">Offre est valable jusqu'au</br>
+                        <span style="font-weight:bold; font-size: 1.8em;">{{convertDate(promo.fin)}}</span></p>
 
                 </div>
-
             </div>
         </div>
     </div>
@@ -34,6 +47,11 @@
             promo: Object,
         },
         computed:{
+
+            getWidth(){
+                return (screen.width > 1000)
+            },
+
             styleImg(){
                 let urlImg = CONFIG.URL_UPLOAD + this.convertString(this.promo.image);
                 return "background: url("+ urlImg +"); background-repeat: no-repeat; background-position: center center; height: 150px; background-size: auto 100% ;";
@@ -92,12 +110,13 @@
         },
         mounted(){
             // console.log(this.dataStr)
-            this.convertDate(this.promo.fin)
+            this.convertDate(this.promo.fin);
+            //console.log(this.getWidth)
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss">
     .titre {
         font-size: 1.8em;
         font-weight:bold;
@@ -110,6 +129,12 @@
         display: -webkit-box;
         -webkit-line-clamp: 2; /* number of lines to show */
         -webkit-box-orient: vertical;
+    }
+    @media screen and (max-width: 1000px){
+
+        .titre{
+            text-align: center;
+        }
     }
 
 </style>

@@ -1,14 +1,17 @@
 <template>
 
-    <div class="row " style="background-color: orange;">
+    <div class="row slider-content" style="background-color: orange;">
+
+        <!--si l'ecran est plus grand que 768px-->
+
         <div class="col-md-2 promo"></div>
 
-        <div class="col-md-8  mr-auto ml-auto">
-            <el-carousel height="150px">
+        <div class="mr-auto ml-auto" :class="widthCarousel">
+            <el-carousel height="setHeight">
 
                 <el-carousel-item class="promoLien" v-for="promo in promos" :key="promo.id">
                     <router-link :to="{ name:'promo', params: { id: promo.id }}">
-                        <Promo :promo="promo"></Promo>
+                        <promo :promo="promo"></promo>
                     </router-link>
                 </el-carousel-item>
 
@@ -16,6 +19,7 @@
         </div>
         <div class="col-md-2 promo"></div>
     </div>
+
 </template>
 
 <script>
@@ -32,18 +36,26 @@
         },
         computed:{
             ...mapState(["promos"]),
+            setHeight(){
+                return (screen.width<768)? "100px": "150px";
+            },
+            // eslint-disable-next-line vue/return-in-computed-property
+            widthCarousel(){
+                return (screen.width>1000)? "col-md-8":"col-md-12";
+            }
         },
         methods:{
             ...mapActions(['getPromos']),
         },
         mounted() {
             this.getPromos();
-           // console.log(this.promos)
+            console.log("setHeight", this.setHeight);
+            console.log("screen.width", screen.width);
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss">
     .promo{
         background-image:  url('/img/promo.png');
         background-repeat: no-repeat;
@@ -52,7 +64,21 @@
         background-size: 100% auto;
     }
     .promoLien a:hover {
-      text-decoration: none;
+        text-decoration: none;
+    }
+    .slider-content {
+        height: 150px;
+    }
+    @media screen and (max-width: 1000px){
+        .slider-content{
+            height: 125px;
+        }
+        .promo{
+            display: none;
+        }
     }
 
+    .el-carousel__indicator{
+        display: none;
+    }
 </style>

@@ -34,7 +34,7 @@
                                     </div>
                                 </router-link>
                                 <h4 class="info-title text-info">Entreprise</h4>
-                                <p class="description">Plan PME. mensualité gratuite et remboursement jusqu'à 15% de votre prime d'assurence.</p>
+                                <p class="description">Plan PME. Mensualité gratuite et remboursement jusqu'à 15% de votre prime d'assurance.</p>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -56,7 +56,7 @@
                                     </div>
                                 </router-link>
                                 <h4 class="info-title text-warning">Assistance juridique</h4>
-                                <p class="description">Repense aux défis par l'action et les conseils des specialistes independants.</p>
+                                <p class="description">Réponse aux défis par l'action et les conseils des specialistes independants.</p>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="row">
-                    <Compagny v-for="compagny in compagnies" :key="compagny.id" :compagny="compagny"></Compagny><!---->
+                    <compagny v-for="compagny in compagnies" :key="compagny.id" :compagny="compagny"></compagny><!---->
                 </div>
 
             </div>

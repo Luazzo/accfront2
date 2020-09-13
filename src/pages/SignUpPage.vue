@@ -8,7 +8,7 @@
             <div class="container">
 
                 <div class="row justify-content-md-center">
-                    <div class="col-6">
+                    <div :class="widthSignUp">
                         <div class="card card-signup">
                             <div class="card-body">
                                 <h3 class="card-title text-center">Inscription</h3>
@@ -104,6 +104,12 @@
                 is_admin : null,
             }
         },
+        computed:{
+            widthSignUp(){
+                return (screen.width<1000)? "col-md-10":"col-md-6";
+            }
+        },
+
         methods: {
             validEmail(email) {
                 let re = /(.+)@(.+){2,}\.(.+){2,}/;
