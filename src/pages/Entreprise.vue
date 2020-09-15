@@ -32,7 +32,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h2 class="title">Quelques uns de nos avantages     </h2>
+                        <h2 class="title">Quelques-uns de nos avantages     </h2>
                         <h4 class="description">This is the paragraph where you can write more details about
                             your projects. Keep you user engaged by providing meaningful information.</h4>
                         <div class="section-space"></div>
@@ -83,7 +83,7 @@
 
                 <div id="mess" class="section section-contact-us text-center">
                     <div class="container">
-                        <h2 class="title">Contactez nous pour un offre</h2>
+                        <h2 class="title">Contactez-nous pour un offre</h2>
                         <p class="description">Nous vous répondons dans les 24H</p>
                         <flash-message></flash-message>
                         <div class="row" id="FormValidation">

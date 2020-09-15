@@ -1,11 +1,24 @@
 <template>
-    <div class="wrapper profile-page">
-        <div style="margin-top: 150px; min-height: 530px;">
-            <h2>Bonjour {{user.name}}</h2>
-            <p>
-                <img src="" alt="">
-            </p>
-                
+
+    <div class="page-header header-filter">
+        <div class="page-header-image" style="background-image: url('img/project13.jpg');
+                background-repeat: no-repeat;background-size: cover;"></div>
+
+        <div class="content-center" style="top: 30%;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 ml-auto text-right">
+
+                        <h1 style="font-weight: bold;">Bonjour {{user.name}}</h1>
+                        <h4>
+                            Votre email : {{user.email}}
+                        </h4>
+                        <h4>
+                            Membre depuis : {{user.created_at}}
+                        </h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>

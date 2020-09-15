@@ -6,6 +6,7 @@
         <div class="content">
             <div class="container">
                 <div class="col-md-5 ml-auto mr-auto">
+                    <h3>Connexion</h3>
                     <card type="login" plain>
 
                         <fg-input addon-left-icon="now-ui-icons ui-1_email-85"

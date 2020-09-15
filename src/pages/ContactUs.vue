@@ -14,7 +14,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 ml-auto mr-auto">
-                            <h2 class="title">Envoyez nous un message</h2>
+                            <h2 class="title">Envoyez-nous un message</h2>
                             <p class="description">Vous pouvez nous contacter pour tout ce qui concerne nos produits.
                                 Nous prendrons contact avec vous dans les plus brefs délais.
                                 <br>
@@ -51,7 +51,7 @@
                                               class="form-control"
                                               id="message"
                                               rows="6"
-                                              placeholder="Veuillez formuler votre demande en quelques mots simple, s'il vous plait">
+                                              placeholder="Veuillez formuler votre demande en quelques mots simples, s'il vous plait">
                                     </textarea>
                                 </div>
                                 <div class="send-button">
@@ -72,7 +72,7 @@
 
                             <info-section type="primary"
                                           icon="now-ui-icons tech_mobile">
-                                <h4 class="info-title">Appellez-nous</h4>
+                                <h4 class="info-title">Appelez-nous</h4>
                                 <p> Sabri El Amri
                                     <br> +32 489 12 34 56
                                     <br> Lun - Ven, 8:30-17:00
@@ -81,8 +81,8 @@
 
                             <info-section type="primary"
                                           icon="business_briefcase-24 now-ui-icons">
-                                <h4 class="info-title">Information légale</h4>
-                                <p> AConseils
+                                <h4 class="info-title">Informations légales</h4>
+                                <p> ACConseils
                                     <br> N° Ent. · 0875146074
                                     <br> IBAN · BE91 0004 4215 3076
                                 </p>

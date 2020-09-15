@@ -10,12 +10,12 @@
                             <div class="col-md-7 ml-auto text-right">
                                 <h1 class="title">Service Particulier </h1>
                                 <h4 class="description">
-                                    Que vous soyez Locataire ou Propriétaire<br>
-                                    et en fonction de l’étendu de votre patrimoine<br>
-                                    nous nous efforçons de vous couvrir<br>
+                                    Que vous soyez locataire ou propriétaire<br>
+                                    et en fonction de l’étendue de votre patrimoine<br>
+                                    nous nous vous couvrons<br>
                                     contre tout risque probable en mettant<br>
                                     une attention particulière sur les défauts.<br>
-                                    Nous faisons en sort que notre offre soit <br>
+                                    Nous faisons en sorte que notre offre soit <br>
                                     la plus compétitive possible.
                                 </h4>
                                 <br/>
@@ -38,7 +38,7 @@
 
         <div id="mess" class="section section-contact-us text-center">
             <div class="container">
-                <h2 id="titleMess" class="title">Contactez nous pour un offre</h2>
+                <h2 id="titleMess" class="title">Contactez-nous pour une offre</h2>
                 <p class="description">Nous vous répondons dans les 24H</p>
                 <flash-message></flash-message>
                 <div class="row" id="FormValidation">
@@ -109,7 +109,7 @@
     export default {
         name: "Particulier",
         title: 'AC Conseils | Particulier',
-        description: "Que vous soyez Locataire ou Propriétaire et en fonction de l’étendu de votre patrimoine...",
+        description: "Que vous soyez locataire ou propriétaire et en fonction de l’étendue de votre patrimoine...",
         components:{
             Pills,
             [Button.name]: Button,
@@ -179,7 +179,7 @@
             },
         },
         created(){
-                  console.log("Que vous soyez Locataire ou Propriétaire et en fonction de l’étendu de votre patrimoine...".length);
+                 // console.log("Que vous soyez locataire ou propriétaire et en fonction de l’étendue de votre patrimoine,...".length);
 
         }
     }

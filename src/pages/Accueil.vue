@@ -11,7 +11,7 @@
                         <div class="col-md-8 mr-auto ml-auto">
                             <h2 class="title">Écoute et Efficacité</h2>
                             <h4 class="description">Nous vous écoutons. Nous analysons vos besoins. Nous faisons les études comparatives
-                                et en suite nous agissons avec éfficacité pour y repondre.</h4>
+                                et ensuite nous agissons avec efficacité pour y répondre.</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -45,7 +45,7 @@
                                     </div>
                                 </router-link>
                                 <h4 class="info-title text-danger">Vie & Hospi</h4>
-                                <p class="description">Rendement optimisé, securité integrale.</p>
+                                <p class="description">Rendement optimisé, sécurité intégrale.</p>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -56,7 +56,7 @@
                                     </div>
                                 </router-link>
                                 <h4 class="info-title text-warning">Assistance juridique</h4>
-                                <p class="description">Réponse aux défis par l'action et les conseils des specialistes independants.</p>
+                                <p class="description">Réponse aux défis par l'action et les conseils des spécialistes indépendants.</p>
                             </div>
                         </div>
                     </div>
@@ -71,8 +71,8 @@
                     <div class="col-md-8 ml-auto mr-auto text-center">
                         <h2 class="title">Qui sommes-nous ?</h2>
                         <h4 class="description">Nous sommes des intermédiaires en assurances professionnels et totalement indépendants qui offrons des solutions sur mesures à nos affiliés pour la couvertures d’assurance de leurs patrimoines.
-                            Nous garantissons un servie et un suivi personnalisé en partenariat avec nos partenaires dans le but de satisfaire au mieux les demandes de nos affiliés.
-                            Si vous êtes intéressé par nos solutions, vous pouvez nous écrire via le menu « contact ».</h4>
+                            Avec nos partenaires, nous garantissons un service et un suivi personnalisés dans le but de satisfaire au mieux les demandes de nos affiliés.
+                            Intéressé par nos solutions? Ecrivez-nous via le menu « contact ».</h4>
                     </div>
                 </div>
             </div>

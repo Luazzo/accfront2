@@ -7,7 +7,7 @@
         <div class="col-md-2 promo"></div>
 
         <div class="mr-auto ml-auto" :class="widthCarousel">
-            <el-carousel height="setHeight">
+            <el-carousel :height="hslides">
 
                 <el-carousel-item class="promoLien" v-for="promo in promos" :key="promo.id">
                     <router-link :to="{ name:'promo', params: { id: promo.id }}">
@@ -29,6 +29,11 @@
 
     export default {
         name: "Promos",
+        data(){
+          return{
+              hslides: "150px",
+          }
+        },
         components: {
             Promo,
             [Carousel.name]: Carousel,
@@ -36,9 +41,6 @@
         },
         computed:{
             ...mapState(["promos"]),
-            setHeight(){
-                return (screen.width<768)? "100px": "150px";
-            },
             // eslint-disable-next-line vue/return-in-computed-property
             widthCarousel(){
                 return (screen.width>1000)? "col-md-8":"col-md-12";
@@ -46,10 +48,17 @@
         },
         methods:{
             ...mapActions(['getPromos']),
+            setHeight(){
+                if(screen.width<768){
+                    return this.hslides = "100px";
+                }else{
+                    return this.hslides = "150px";
+                }
+            },
         },
         mounted() {
             this.getPromos();
-            console.log("setHeight", this.setHeight);
+            this.setHeight();
             console.log("screen.width", screen.width);
         }
     }

@@ -7,37 +7,26 @@
                     <div class="col-md-10">
                         <tabs pills type="primary" vertical class="row">
                             <tab-pane label="Habitation">
-                                Collaboratively administrate empowered markets via plug-and-play networks. Dynamically
-                                procrastinate B2C users after installed base benefits.
+                                Profitez chez AC Conseils de la meilleure protection au prix le plus avantageux :
+                                une assurance Habitation si simple, ça surprend.
                                 <br/>
-                                <br/> Dramatically visualize customer directed convergence without revolutionary ROI.
                             </tab-pane>
                             <tab-pane label="Voiture">
-                                Efficiently unleash cross-media information without cross-media value. Quickly maximize
-                                timely deliverables for real-time schemas.
+                                Profitez chez AC Conseils de la meilleure protection au prix le plus avantageux :
+                                une assurance Voiture si simple, ça surprend.
                                 <br/>
-                                <br/>Dramatically maintain clicks-and-mortar solutions without functional solutions.
                             </tab-pane>
                             <tab-pane label="Famille">
-                                Completely synergize resource taxing relationships via premier niche markets.
-                                Professionally cultivate one-to-one customer service with robust ideas.
-                                <br/>
-                                <br/>Dynamically innovate resource-leveling customer service for state of the art
-                                customer service.
+                                Profitez chez AC Conseils de la meilleure protection au prix le plus avantageux :
+                                une assurance Famille si simple, ça surprend.
                             </tab-pane>
                             <tab-pane label="Vie">
-                                Completely synergize resource taxing relationships via premier niche markets.
-                                Professionally cultivate one-to-one customer service with robust ideas.
-                                <br/>
-                                <br/>Dynamically innovate resource-leveling customer service for state of the art
-                                customer service.
+                                Profitez chez AC Conseils de la meilleure protection au prix le plus avantageux :
+                                une assurance Vie si simple, ça surprend.
                             </tab-pane>
                             <tab-pane label="Hospitalisation">
-                                Completely synergize resource taxing relationships via premier niche markets.
-                                Professionally cultivate one-to-one customer service with robust ideas.
-                                <br/>
-                                <br/>Dynamically innovate resource-leveling customer service for state of the art
-                                customer service.
+                                Profitez chez AC Conseils de la meilleure protection au prix le plus avantageux :
+                                une assurance Voiture si simple, ça surprend.
                             </tab-pane>
                             <tab-pane label="Protection juridique">
                                 Completely synergize resource taxing relationships via premier niche markets.

@@ -29,6 +29,7 @@
     },
     mounted(){
       //this.SET_LOGGEDIN(false);
+      console.log(this.token)
 
 
       if(this.token){
