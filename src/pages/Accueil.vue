@@ -65,23 +65,25 @@
         </div>
 
         <!--QUI SOMME NOUS-->
-        <div class="team-3 section-image" style="background-image: url('img/bg24-fonce.jpg')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h2 class="title">Qui sommes-nous ?</h2>
-                        <h4 class="description">Nous sommes des intermédiaires en assurances professionnels et totalement indépendants qui offrons des solutions sur mesures à nos affiliés pour la couvertures d’assurance de leurs patrimoines.
-                            Avec nos partenaires, nous garantissons un service et un suivi personnalisés dans le but de satisfaire au mieux les demandes de nos affiliés.
-                            Intéressé par nos solutions? Ecrivez-nous via le menu « contact ».</h4>
+        <div style="background-color: black;">
+            <div class="team-3 section-image" style="background-image: url(img/_DSC0141.jpg);
+                                                 background-size:cover; height: inherit;
+                                                 background-repeat:no-repeat; ">
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mr-auto text-center">
+                            <h2 class="title">Qui sommes-nous ?</h2>
+                            <h4 class="description">Nous sommes des intermédiaires en assurances professionnels et totalement indépendants qui offrons des solutions sur mesures à nos affiliés pour la couvertures d’assurance de leurs patrimoines.
+                                Avec nos partenaires, nous garantissons un service et un suivi personnalisés dans le but de satisfaire au mieux les demandes de nos affiliés.
+                                Intéressé par nos solutions? Ecrivez-nous via le menu « contact ».</h4>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!--SLIDER PROMOS-->
-        <Promos></Promos>
-
-
+        <!--<Promos></Promos>-->
 
 
         <!--NOS PARTENAIRES-->
@@ -98,6 +100,13 @@
             </div>
         </div>
 
+
+
+        <div class="section " style="background-color: #eee; padding-top: 50px; padding-bottom: 50px;">
+            <a href="https://www.dkv.be/fr/dkv-insureme?agent_id=999260&token=14813WdOyjrPcRiDQMhxC3IGQMwlEar6b0wMAd2BLmvVx2qU999260579&utm_source=agent_999260&utm_campaign=purl_generator&product=579&product_category=579#dkv-579">
+                <img class="img-raised" src="img/partenaires/b2c_purl_web_insureme_970x250_202006_fr.png"  alt="dkv">
+            </a>
+        </div>
 
         <!--MY BROKER-->
         <div id="mybroker" class="subscribe-line subscribe-line-image"

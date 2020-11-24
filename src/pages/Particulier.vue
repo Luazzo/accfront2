@@ -12,7 +12,7 @@
                                 <h4 class="description">
                                     Que vous soyez locataire ou propriétaire<br>
                                     et en fonction de l’étendue de votre patrimoine<br>
-                                    nous nous vous couvrons<br>
+                                    nous vous couvrons<br>
                                     contre tout risque probable en mettant<br>
                                     une attention particulière sur les défauts.<br>
                                     Nous faisons en sorte que notre offre soit <br>
@@ -82,7 +82,7 @@
                             <textarea class="form-control"
                                       name="name" rows="4" cols="80"
                                       v-model="form.message"
-                                      placeholder="Veuillez formuler votre demande en quelques mots simple, s'il vous plait">
+                                      placeholder="Veuillez formuler votre demande en quelques mots simples, s'il vous plait">
                             </textarea>
                         </div>
                         <div class="send-button">

@@ -27,29 +27,14 @@
                 Contact
             </router-link>
 
-
-            <drop-down tag="li" title="Espace client" class="nav-item">
-                <a class="" href="https://app.mybroker.be/cs/home/index/71228" target="_blank">
-                    <div style="background: url(img/mybroker_logo.png) no-repeat 30% center; height: 40px; background-size: contain"> </div>
-                </a>
-                <nav-link v-show="loggedIn" to="/profil">
-                    <span style=" text-transform: uppercase;" >Profil</span>
-                </nav-link>
-                <li v-show="loggedIn" class="nav-item nav-link" style="cursor: pointer; padding-left:24px; text-transform: uppercase;" @click.prevent="logoutUser">
-                    Deconnexion
-                </li>
-                <nav-link v-show="!loggedIn" to="/register">
-                    Inscription
-                </nav-link>
-
-                <nav-link v-show="!loggedIn" to="/login">
-                    Connexion
-                </nav-link>
-            </drop-down>
-
+            <router-link class="nav-item nav-link" style="padding-top: 0;" to="/mybroker" target='_blank'>
+                <img src="img/mybroker_logo.png" style="height: 40px;" alt="MyBroker">
+            </router-link>
 
 
         </template>
+
+
 
     </navbar>
 </template>

@@ -140,7 +140,7 @@
                                     <textarea class="form-control"
                                               name="name" rows="4" cols="80"
                                               v-model="form.message"
-                                              placeholder="Veuillez formuler votre demande en quelques mots simple, s'il vous plait">
+                                              placeholder="Veuillez formuler votre demande en quelques mots simples, s'il vous plait">
                                     </textarea>
                                 </div>
                                 <div class="send-button">

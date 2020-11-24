@@ -10,7 +10,7 @@ import MainNavbar from "./layout/MainNavbar.vue"
 import MainFooter from "./layout/MainFooter.vue"
 import Register from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
-import License from './pages/License'
+import Licence from './pages/License'
 import ProfilePage from "./pages/ProfilePage";
 import {store} from './store/store';
 
@@ -47,7 +47,7 @@ const router = new Router({
       components: {default: Accueil},
       props: {header: {colorOnScroll: 450}}
     },
-    {
+    /*{
       path: "/promos",
       name: "promos",
       components: {default: Promos},
@@ -58,7 +58,7 @@ const router = new Router({
       name: "promo",
       components: {default: Promo},
       props: {default: true, header: {colorOnScroll: 450}}
-    },
+    },*/
     {
       path: "/particulier",
       name: "particulier",
@@ -72,9 +72,9 @@ const router = new Router({
       props: {header: {colorOnScroll: 450}}
     },
     {
-      path: '/license',
-      name: 'license',
-      component: License,
+      path: '/licence',
+      name: 'licence',
+      component: Licence,
     },
     {
       path: "/contact",
@@ -82,7 +82,7 @@ const router = new Router({
       components: {default: Contact},
       props: {header: {colorOnScroll: 450}}
     },
-    {
+    /*{
       path: "/login",
       name: "login",
       components: {default: LoginPage},
@@ -94,14 +94,18 @@ const router = new Router({
       name: 'register',
       component: Register,
       beforeEnter: ifNotAuthenticated,
-    },
+    },*/
     // USER ROUTE
     {
+      path: '/mybroker',
+      beforeEnter() { location.href = 'https://app.mybroker.be/cs/home/index/71228' }
+    },
+   /* {
       path: '/profil',
       name: 'profil',
       component: ProfilePage,
       beforeEnter: ifAuthenticated,
-    }
+    }*/
   ],
   scrollBehavior: (to) => {
     if (to.hash) {

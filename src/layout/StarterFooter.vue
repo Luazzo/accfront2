@@ -15,14 +15,15 @@
                             About Us
                         </a>
                     </li>
+                    <!--
                     <li>
                         <a href="https:///blog.creative-tim.com">
                             Blog
                         </a>
-                    </li>
+                    </li>-->
                     <li>
                         <a href="https://www.creative-tim.com/license">
-                            License
+                            Licence
                         </a>
                     </li>
                 </ul>

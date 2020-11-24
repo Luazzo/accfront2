@@ -4,15 +4,15 @@
             :data-background-color="backgroundColor">
         <div class="container">
             <nav>
-                <ul>
+                <ul><!--
                     <li>
                         <a href="https://blog.creative-tim.com"  target="_blank">
                             Blog
                         </a>
-                    </li>
+                    </li>-->
                     <li>
-                        <router-link class="nav-item nav-link" to="/license">
-                            License
+                        <router-link class="nav-item nav-link" to="/licence">
+                            Licence
                         </router-link>
                     </li>
                     <li>
