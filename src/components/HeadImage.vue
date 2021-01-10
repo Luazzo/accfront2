@@ -7,7 +7,7 @@
         <div class="contentcenter">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto text-center">
-                    <h1 class="title">L'Assurance, simplement...</h1>
+                    <h1 class="title">Assurances - Audit - Conseils</h1>
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ import router from '@websanova/vue-auth/drivers/router/vue-router.2.x'
  */
 const config = {
   auth: bearer,
-  http: axios,
+  https: axios,
   router: router,
   tokenDefaultName: 'accessToken',
   tokenStore: ['localStorage'],

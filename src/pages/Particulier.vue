@@ -9,13 +9,19 @@
                         <div class="row">
                             <div class="col-md-7 ml-auto text-right">
                                 <h1 class="title">Service Particulier </h1>
-                                <h4 class="description">
+                                <h4 class="description" id="particL">
                                     Que vous soyez locataire ou propriétaire<br>
                                     et en fonction de l’étendue de votre patrimoine<br>
                                     nous vous couvrons<br>
                                     contre tout risque probable en mettant<br>
                                     une attention particulière sur les défauts.<br>
                                     Nous faisons en sorte que notre offre soit <br>
+                                    la plus compétitive possible.
+                                </h4>
+                                <h4 class="description" id="particS">
+                                    Que vous soyez locataire ou propriétaire
+                                    nous vous couvrons contre tout risque probable.
+                                    Nous faisons en sorte que notre offre soit
                                     la plus compétitive possible.
                                 </h4>
                                 <br/>
@@ -87,7 +93,7 @@
                         </div>
                         <div class="send-button">
                             <a href="#" class="btn btn-primary btn-round btn-lg btn-block"
-                               @click.prevent="sendForm">Envoyer</a>
+                               @click.prevent="sendForm" id="button">Envoyer</a>
                             <!-- event click ne marche pas avec n-button
                             <n-button type="primary" round block size="lg" v-on:click="sendForm" >Envoyer</n-button>
                             -->
@@ -98,6 +104,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </template>
 
@@ -106,6 +114,7 @@
     import Pills from './components/Pills'
     import { Button, FormGroupInput } from '@/components';
     import axios from "axios";
+    import emailjs from "emailjs-com";
     export default {
         name: "Particulier",
         title: 'AC Conseils | Particulier',
@@ -147,7 +156,7 @@
                 }
             },
 
-            sendForm(){
+            /*sendForm(){
                 this.errors = {};
                 //validation des champs
                 for (const prop in this.form) {
@@ -176,6 +185,59 @@
                             console.log(error);
                         });
                 }
+            },*/
+
+            sendForm(){
+                this.errors = {};
+                //validation des champs
+                for (const prop in this.form) {
+                    if(prop === "email") {
+                        if (this.validEmail(this.form.email) === false) {
+                            this.errors.email = true
+                        }
+                    }else if( prop === "permis" ) {
+                        continue
+                    }else if( !this.form[prop] ) {
+                        this.errors[prop] = true
+                    }
+                }
+                //Je verifie est-e qu'il y a au moins un TRUE d'error et si non j'appelle une fonction envoyer un email.
+                if(!Object.values(this.errors).some(value => true)) {
+                    const btn = document.getElementById('button');
+                    btn.innerHTML = 'Envoie...';
+
+                    const serviceID = 'default_service';
+                    const templateID = 'template_syq5jgn';
+                    const userID = 'user_3boUT3tUdBqFcee9hbni7';
+
+                    let templateParams = {
+                        from_name: this.form.nom,
+                        reply_to : this.form.email,
+                        message : {
+                            nom : this.form.nom,
+                            email : this.form.email,
+                            message : this.form.message,
+                            gsm: this.form.gsm,
+                            ddn: this.form.ddn,
+                            permis: this.form.permis,
+                        },
+                    };
+                    console.log(templateParams)
+
+                    emailjs.send(serviceID, templateID, templateParams, userID)
+                        .then(() => {
+                            btn.innerHTML = 'Envoyer';
+                            this.videChamps(this.form)
+                            this.flash('Merci! Votre message est bien envoyé.', 'success', {
+                                timeout: 4000,
+                            });
+                        }, (err) => {
+                            btn.value = 'Send Email';
+                            alert(JSON.stringify(err));
+                        });/**/
+
+
+                }
             },
         },
         created(){
@@ -188,6 +250,26 @@
 
 </script>
 
+<style lang="scss">
+
+    @media (max-width: 480px){
+        #particL{
+            visibility: hidden;
+        }
+        #particS{
+            visibility: visible;
+        }
+    }
+    @media (min-width: 481px){
+        #particL{
+            visibility: visible;
+        }
+        #particS{
+            visibility: hidden;
+        }
+    }
+</style>
 <style scoped>
     .labelError{ color: #fa7a50; float: left; margin-bottom: 0px;}
+
 </style>

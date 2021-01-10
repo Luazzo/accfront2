@@ -4,7 +4,7 @@ module.exports = {
     : '/',
 
   pwa: {
-    name: 'AC Conseils',
+    name: 'A&AC',
     themeColor: '#f96332',
     msTileColor: '#2ca8ff',
     appleMobileWebAppCapable: 'yes',

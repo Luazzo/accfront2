@@ -29,7 +29,8 @@ Vue.router = router
 
 // Set Vue Axios
 Vue.use(VueAxios, axios)
-axios.defaults.baseURL = `http://www.admin.acconseils.be/api/`
+axios.defaults.baseURL = `https://www.admin.acconseils.be/api/`
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 // Set Vue authentication
 Vue.use(VueAuth, auth)

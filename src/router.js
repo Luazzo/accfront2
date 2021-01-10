@@ -98,7 +98,8 @@ const router = new Router({
     // USER ROUTE
     {
       path: '/mybroker',
-      beforeEnter() { location.href = 'https://app.mybroker.be/cs/home/index/71228' }
+      beforeEnter(to, from, next) {location.href='https://app.mybroker.be/cs/home/index/71228'}
+
     },
    /* {
       path: '/profil',
@@ -107,13 +108,13 @@ const router = new Router({
       beforeEnter: ifAuthenticated,
     }*/
   ],
-  scrollBehavior: (to) => {
+  /*scrollBehavior: (to) => {
     if (to.hash) {
       return {selector: to.hash}
     } else {
       return { x: 0, y: 0 }
     }
-  },
+  },*/
 });
 
 export default router;

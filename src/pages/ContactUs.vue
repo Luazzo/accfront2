@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="send-button">
                                     <a href="#" class="btn btn-primary btn-round btn-lg btn-block"
-                                       @click.prevent="sendForm">Envoyer</a>
+                                       @click.prevent="sendForm" id="button">Envoyer</a>
                                 </div>
                             </form>
                         </div>
@@ -99,6 +99,7 @@
 <script>
     import { Button, HeadImage, InfoSection, FormGroupInput } from '../components';
     import axios from "axios";
+    import emailjs from "emailjs-com";
 
     export default {
         name: 'contact-us',
@@ -138,7 +139,7 @@
                     this.form[prop]  = ''
                 }
             },
-            sendForm(){
+            /*sendForm(){
                 this.errors = {};
                 //validation des champs
                 for (const prop in this.form) {
@@ -164,6 +165,54 @@
                         .catch(error => {
                             console.log(error);
                         });
+                }
+            },*/
+
+            sendForm(){
+                this.errors = {};
+                //validation des champs
+                for (const prop in this.form) {
+                    if(prop === "email") {
+                        if (this.validEmail(this.form.email) === false) {
+                            this.errors.email = true
+                        }
+                    }else if( !this.form[prop] ) {
+                        this.errors[prop] = true
+                    }
+                }
+                //Je verifie est-e qu'il y a au moins un TRUE d'error et si non j'appelle une fonction envoyer un email.
+                if(!Object.values(this.errors).some(value => true)) {
+                    const btn = document.getElementById('button');
+                    btn.innerHTML = 'Envoie...';
+
+                    const serviceID = 'default_service';
+                    const templateID = 'template_syq5jgn';
+                    const userID = 'user_3boUT3tUdBqFcee9hbni7';
+
+                    let templateParams = {
+                        from_name: this.form.nom,
+                        reply_to : this.form.email,
+                        message : {
+                            nom : this.form.nom,
+                            email : this.form.email,
+                            message : this.form.message,
+                            gsm: this.form.gsm,
+                        },
+                    };
+                    console.log(templateParams)
+
+                    emailjs.send(serviceID, templateID, templateParams, userID)
+                        .then(() => {
+                            btn.innerHTML = 'Envoyer';
+                            this.videChamps(this.form)
+                            this.flash('Merci! Votre message est bien envoyé.', 'success', {
+                                timeout: 4000,
+                            });
+                        }, (err) => {
+                            btn.value = 'Send Email';
+                            alert(JSON.stringify(err));
+                        });/**/
+
                 }
             },
         },

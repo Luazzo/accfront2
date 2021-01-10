@@ -27,14 +27,11 @@
                 Contact
             </router-link>
 
-            <router-link class="nav-item nav-link" style="padding-top: 0;" to="/mybroker" target='_blank'>
+            <a href="https://app.mybroker.be/cs/home/index/71228" target='_blank'>
                 <img src="img/mybroker_logo.png" style="height: 40px;" alt="MyBroker">
-            </router-link>
-
+            </a>
 
         </template>
-
-
 
     </navbar>
 </template>
@@ -75,7 +72,7 @@
 
 <style scoped>
     .logo-img{
-        background-image: url('/img/icons/logo-acc-horiz.jpg');
+        background-image: url('/img/icons/logo-aac.jpg');
         background-size: contain;
         background-repeat: no-repeat;
         height:60px;
